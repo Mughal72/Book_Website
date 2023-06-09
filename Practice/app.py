@@ -13,7 +13,7 @@ app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 mysql = MySQL(app)
 
 # Secret key for flashing messages
-app.secret_key = "37074c44f450770a08097a81510354e8"
+app.secret_key = "enter-your-key"
 
 
 @app.route('/')
