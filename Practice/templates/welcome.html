@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Book Mania</title>
+    <style>
+        /* CSS Styles */
+         @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
+        body {
+            background-image: url("../static/images/bg1.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cambo', serif;
+}
+
+       .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+
+        }
+
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+             max-width: 1100px;
+              margin: 10 auto;
+               display: flex;
+              height: 100%;
+
+        }
+
+        .nav_logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav_items {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav_item {
+            margin-left: 10px;
+             display: flex;
+              height: 100%;
+              align-items: center;
+              justify-content: space-between;
+        }
+
+        .nav_link {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .front {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 24px;
+        }
+
+    .nav_link:hover {
+  color: #d9d9d9;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav_logo">Book Mania</a>
+        <ul class="nav_items">
+          <li class="nav_item">
+            <a href="#" class="nav_link">Home</a>
+            <a href="#" class="nav_link">Product</a>
+            <a href="#" class="nav_link">Services</a>
+            <a href="#" class="nav_link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1 class="front">Welcome, {{ username }}!</h1><br>
+
+    <p class="front">You are now logged in to our book website.<br><br>
+    Start exploring our collection of books and enjoy your reading journey.</p>
+
+     <script>
+        // JavaScript code
+        // Add your JavaScript code here if needed
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        if (username) {
+            document.querySelector('.front').textContent = `Welcome, ${username}!`;
+        }
+    </script>
+</body>
+</html>

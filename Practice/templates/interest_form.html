@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalized Recommendation Form</title>
+  <!-- ===== Google Font Import - Poppins ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS styles for the form */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      max-width: 100vw;
+      background: #ff4500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 6px;
+      padding: 30px;
+      background-color: #fff;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container header {
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .container form {
+      position: relative;
+    }
+
+    .form {
+      display: none;
+    }
+
+    .form.active {
+      display: block;
+    }
+
+    .form .title {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 6px 0;
+      color: #333;
+    }
+
+    .form .fields {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    .input-field {
+      margin-bottom: 16px;
+    }
+
+    .input-field label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #2e2e2e;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .input-field select,
+    .input-field input[type="text"],
+    .input-field input[type="number"],
+    .input-field textarea {
+      outline: none;
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      padding: 8px 12px;
+      width: 100%;
+    }
+
+    .input-field select:focus,
+    .input-field input[type="text"]:focus,
+    .input-field input[type="number"]:focus,
+    .input-field textarea:focus {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+    }
+
+    .submit-btn {
+      display: none;
+      width: 100%;
+      background-color: #ff4500;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #265df2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>Personalized Recommendation</header>
+
+    <form id="interest-form" action="/submit_interests" method="post">
+      <div class="form active">
+        <span class="title">Fill this Form</span><br><br>
+        <div class="fields">
+          <div class="input-field">
+            <label>User ID:</label>
+            <input type="text" id="user_id" name="user_id" required placeholder="Enter your username"><br>
+            <small>Enter your username as provided during signup</small><br>
+          </div>
+
+          <div class="input-field">
+            <label>Age:</label>
+            <input type="number" id="age" name="age" required>
+          </div>
+
+          <div class="input-field">
+            <label>Location:</label>
+            <select required name="location" id="location">
+              <option disabled selected>Select Location</option>
+              <option>Afghanistan </option>
+              <option>Armenia </option>
+              <option>Australia </option>
+              <option>Austria </option>
+              <option> Bahrain</option>
+              <option>Bangladesh</option>
+              <option>Bhutan</option>
+              <option>Brunei</option>
+              <option>Cambodia</option>
+              <option>China</option>
+              <option>Cyprus</option>
+              <option>Georgia</option>
+              <option>France</option>
+              <option>Paris</option>
+              <option>India</option>
+              <option>Indonesia</option>
+              <option>Iran</option>
+              <option>Iraq</option>
+              <option>Japan</option>
+              <option>Jordan</option>
+              <option>Kazakhstan</option>
+              <option>Kuwait</option>
+              <option>Kyrgyzstan</option>
+              <option>Laos</option>
+              <option>Lebanon</option>
+              <option>Malaysia</option>
+              <option>Maldives</option>
+              <option>Mongolia</option>
+              <option>Myanmar</option>
+              <option>Mongolia</option>
+              <option>Nepal</option>
+              <option>North Korea</option>
+              <option>Oman</option>
+              <option>Pakistan</option>
+              <option>Palestine</option>
+              <option>Philippines</option>
+              <option>Qatar</option>
+              <option>Largest part of Russia</option>
+              <option>Saudi Arabia</option>
+              <option>Singapore</option>
+              <option>South Korea</option>
+              <option>Sri Lanka</option>
+              <option>Syria</option>
+              <option>Taiwan</option>
+              <option>Tajikistan</option>
+              <option>LThailand</option>
+              <option>Timor-Leste</option>
+              <option>Largest part of Turkey</option>
+              <option>Turkmenistan</option>
+              <option>United Arab Emirates</option>
+              <option>Uzbekistan</option>
+              <option>UK</option>
+              <option>Vietnam</option>
+              <option>Yemen</option>
+
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>What genres or types of books do you typically enjoy reading?</label>
+            <select required name="genres" id="genres">
+              <option disabled selected>Select Favorite genre</option>
+              <option value="mystery">Mystery</option>
+              <option value="romance">Romance</option>
+              <option value="science-fiction">Science Fiction</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="thriller">Thriller</option>
+              <!-- Add more genre options as needed -->
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Are there any authors you particularly like or are interested in discovering?</label>
+            <select required name="authors" id="authors">
+              <option disabled selected>Select Books</option>
+              <option>Seymour Papert</option>
+              <option>Bjarne Stroustrup</option>
+              <option>Martin Fowler</option>
+              <option>Kathy Sierra and Bert Bates</option>
+              <option>Robert C. Martin (Uncle Bob)</option>
+              <option>Eric Evans</option>
+              <option>John Resig</option>
+              <option>Sandi Metz</option>
+              <option>Stuart Russell and Peter Norvig</option>
+              <option>Richard S. Sutton and Andrew G. Barto</option>
+              <option>Eben Upton</option>
+              <!-- Add more author options as needed -->
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form">
+        <span class="title">Fill this Form</span><br><br>
+        <div class="fields">
+          <div class="input-field">
+            <label>Do you prefer fiction or non-fiction books?</label>
+            <select required name="book_type" id="book_type">
+              <option disabled selected>Select Book Type</option>
+              <option>Fiction</option>
+              <option>Non-Fiction</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>What was the last book you read, and what did you think of it?</label>
+            <textarea id="last_book" name="last_book" rows="3" maxlength="40" required></textarea>
+            <small id="last-book-counter">0/40</small>
+          </div>
+
+          <div class="input-field">
+            <label>How often do you read books?</label>
+            <select required name="reading_frequency" id="reading_frequency">
+              <option disabled selected>Select Frequency</option>
+              <option>Daily</option>
+              <option>Weekly</option>
+              <option>Once a Week</option>
+              <option>Monthly</option>
+              <option>Occasionally</option>
+              <option>Rarely</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Do you prefer physical books or e-books?</label>
+            <select required name="book_format" id="book_format">
+              <option disabled selected>Select Format</option>
+              <option>Physical books</option>
+              <option>E-books</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label>Would you like to receive recommendations based on your reading history?</label>
+            <select required name="receive_recommendations" id="receive_recommendations">
+              <option disabled selected>Select Preference</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form">
+        <span class="title">Fill this Form</span><br><br>
+        <div class="fields">
+          <div class="input-field">
+            <label>Are there any topics or themes that you particularly enjoy reading about?</label>
+            <textarea id="reading_topics" name="reading_topics" rows="3" maxlength="30" required></textarea>
+            <small id="reading-topics-counter">0/30</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form">
+        <span class="title">Thank You!</span>
+        <div class="fields">
+          <p> If you have any additional questions or requests, feel free to contact us.</p>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="previous">Previous</button>
+        <button class="next">Next</button>
+        <button class="submit-btn" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+  const forms = document.querySelectorAll('.form');
+  const nextBtn = document.querySelector('.next');
+  const previousBtn = document.querySelector('.previous');
+  const submitBtn = document.querySelector('.submit-btn');
+  const lastBookTextarea = document.getElementById('last_book');
+  const lastBookCounter = document.getElementById('last-book-counter');
+  const readingTopicsTextarea = document.getElementById('reading_topics');
+  const readingTopicsCounter = document.getElementById('reading-topics-counter');
+
+  let currentForm = 0;
+
+  function showForm(index) {
+    forms.forEach((form, i) => {
+      if (i === index) {
+        form.classList.add('active');
+      } else {
+        form.classList.remove('active');
+      }
+    });
+
+    if (index === 0) {
+      previousBtn.style.display = 'none';
+    } else {
+      previousBtn.style.display = 'inline-block';
+    }
+
+    if (index === forms.length - 1) {
+      nextBtn.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+    } else {
+      nextBtn.style.display = 'inline-block';
+      submitBtn.style.display = 'none';
+    }
+  }
+
+  function validateForm() {
+    const currentFormFields = forms[currentForm].querySelectorAll('input, select, textarea');
+    let isFormValid = true;
+
+    currentFormFields.forEach(field => {
+      if (field.value.trim() === '') {
+        isFormValid = false;
+      }
+    });
+
+    if (!isFormValid) {
+      alert('Please fill all the questions before submitting the form.');
+    }
+
+    return isFormValid;
+  }
+
+  function submitForm() {
+    const isFormValid = validateForm();
+    if (isFormValid) {
+      // Submit the form or redirect to the next page
+      window.alert('Your form has been submitted successfully!');
+      window.location.href = '/login';
+    }
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentForm++;
+    showForm(currentForm);
+  });
+
+  previousBtn.addEventListener('click', () => {
+    currentForm--;
+    showForm(currentForm);
+  });
+
+  showForm(currentForm);
+
+  lastBookTextarea.addEventListener('input', () => {
+    const charactersRemaining = 40 - lastBookTextarea.value.length;
+    lastBookCounter.textContent = `${charactersRemaining}/40`;
+  });
+
+  readingTopicsTextarea.addEventListener('input', () => {
+    const charactersRemaining = 30 - readingTopicsTextarea.value.length;
+    readingTopicsCounter.textContent = `${charactersRemaining}/30`;
+  });
+
+  submitBtn.addEventListener('click', () => {
+    submitForm();
+  });
+
+  // Submit the form when the Enter key is pressed
+  forms.forEach(form => {
+    form.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        submitForm();
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>
+
