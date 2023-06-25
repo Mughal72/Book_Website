@@ -1,4 +1,6 @@
 import csv
+import time
+import pandas as pd
 from flask import Flask, render_template, request, redirect, flash, session
 from flask_mysqldb import MySQL
 
@@ -13,11 +15,26 @@ app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 mysql = MySQL(app)
 
 # Secret key for flashing messages
-app.secret_key = "enter-your-key"
+app.secret_key = "8f4e74efb806979fbaa51faa46d66088"
+
+
+def get_popular_books():
+    # Load the dataset
+    books_df = pd.read_csv('C:/Users/A R Y/PycharmProjects/practice/books.csv', encoding='latin1')
+
+    # Calculate the average ratings for each book
+    book_ratings = books_df.groupby('Book-Title').agg(
+        {'Ratings': 'mean', 'Author-Name': 'first', 'Image-URL': 'first'}).reset_index()
+
+    # Sort the books based on average ratings in descending order
+    popular_books = book_ratings.sort_values('Ratings', ascending=False).head(30)
+
+    return popular_books
 
 
 @app.route('/')
 def index():
+
     return render_template('index.html')
 
 
@@ -60,6 +77,8 @@ def submit_interests():
         genres = request.form.getlist('genres')
         authors = request.form.getlist('authors')
         last_book = request.form['last_book']
+        isbn = request.form['isbn']
+        rating = request.form['rating']
         reading_frequency = request.form['reading_frequency']
         book_format = request.form['book_format']
         receive_recommendations = request.form['receive_recommendations']
@@ -69,7 +88,7 @@ def submit_interests():
         # Save interest data to the CSV file
         with open('C:/Users/A R Y/PycharmProjects/practice/users.csv', 'a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow([username, location, age, ', '.join(genres), ', '.join(authors), last_book,
+            writer.writerow([username, location, age, ', '.join(genres), ', '.join(authors), last_book, isbn, rating,
                              reading_frequency, book_format, receive_recommendations, reading_topics, book_type])
 
         return redirect('/login')
@@ -116,7 +135,15 @@ def welcome():
         user_data = cur.fetchone()
         cur.close()
 
-        return render_template('welcome.html', username=username, email=user_data['email'], password=user_data['password'])
+        # Get the popular books
+        popular_books = get_popular_books()
+
+        # Remove username after 4 seconds
+        time.sleep(4)
+        session.pop('username', None)
+
+        return render_template('welcome.html', username=username, email=user_data['email'],
+                               password=user_data['password'], popular_books=popular_books)
     else:
         return redirect('/login')
 
