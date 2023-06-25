@@ -3,10 +3,89 @@
 <head>
     <title>Welcome to Book Mania</title>
     <style>
+
+
+    /* popular books css*/
+ .top {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 30px;
+        weight: bold;
+
+    }
+
+    .book-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .book-wrapper {
+        width: 220px;
+        margin-right: 20px;
+    }
+
+    .book {
+        width: 200px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .book img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        object-fit: cover;
+    }
+
+    .book-details h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .book-details p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: black;
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+    }
+
+    .rating-value {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .stars {
+        font-size: 16px;
+        color: #ffc107;
+    }
+
+    .stars::before {
+        content: "\2605\2605\2605\2605\2605"; /* Five filled stars */
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        width: 80px;
+        letter-spacing: 1px;
+    }
+
+    .stars:hover::before {
+        content: "\2605\2605\2605\2605\2605"; /* Five filled stars */
+    }
+
+
+
         /* CSS Styles */
          @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
         body {
-            background-image: url("../static/images/bg1.webp");
+<!--            background-image: url("../static/images/bg1.webp");-->
             background-repeat: no-repeat;
             background-size: cover;
 
@@ -75,6 +154,13 @@
   color: #d9d9d9;
 }
 
+#username {
+  position: absolute;
+  top: 5px; /* Adjust the distance from the navigation bar */
+  right: 0;
+  font-size: small;
+}
+
 
 
     </style>
@@ -96,18 +182,42 @@
       </nav>
     </header>
 
-    <h1 class="front">Welcome, {{ username }}!</h1><br>
+    <h1 id="username" class="front">Welcome, {{ username }}!</h1><br>
 
-    <p class="front">You are now logged in to our book website.<br><br>
-    Start exploring our collection of books and enjoy your reading journey.</p>
+<!-- Popular Books Section -->
+   <h2 class="top">Top Popular Books</h2>
+<div class="book-container">
+    {% for index, book in popular_books.iterrows() %}
+    <div class="book">
+        <img src="{{ book['Image-URL'] }}" alt="Book Cover">
+        <div class="book-details">
+            <h3>{{ book['Book-Title'] }}</h3> <br>
+            <p>Author: {{ book['Author-Name'] }}</p><br>
+           <div class="rating">
+               <p class="rating-value">Ratings:{{ book['Ratings'] }}</p>
+               <span class="stars"></span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
      <script>
-        // JavaScript code
+      // JavaScript code
         // Add your JavaScript code here if needed
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('username');
         if (username) {
-            document.querySelector('.front').textContent = `Welcome, ${username}!`;
+            const usernameElement = document.getElementById('username');
+            usernameElement.textContent = username;
+        }
+
+        const usernameElement = document.getElementById('username');
+        if (usernameElement) {
+            // Hide username after 4 seconds
+            setTimeout(() => {
+                usernameElement.style.visibility = 'hidden';
+            }, 4000);
         }
     </script>
 </body>
