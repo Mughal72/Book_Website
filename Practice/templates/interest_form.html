@@ -252,11 +252,35 @@
 
           <div class="input-field">
             <label>What was the last book you read, and what did you think of it?</label>
-            <textarea id="last_book" name="last_book" rows="3" maxlength="40" required></textarea>
+         <textarea id="last_book" name="last_book" rows="3" maxlength="40" required></textarea>
             <small id="last-book-counter">0/40</small>
           </div>
 
           <div class="input-field">
+  <label>ISBN of the last book you read:</label>
+  <input type="text" id="isbn" name="isbn" pattern="[0-9]{10,13}" title="Please enter a valid ISBN (10 or 13 digits)"  oninput="limitInputLength(this, 13)">
+  <small>Please enter the ISBN of the last book you read (10 or 13 digits).</small>
+</div>
+
+          <div class="input-field">
+  <label>Rating of the last book you read (0-5):</label>
+  <select name="rating" id="rating">
+              <option value="5">5 stars</option>
+              <option value="4">4 stars</option>
+              <option value="3">3 stars</option>
+              <option value="2">2 stars</option>
+              <option value="1">1 star</option>
+            </select>
+  <small>Please rate the last book you read from 0 to 5.</small>
+</div>
+        </div>
+      </div>
+
+      <div class="form">
+        <span class="title">Fill this Form</span><br><br>
+        <div class="fields">
+
+           <div class="input-field">
             <label>How often do you read books?</label>
             <select required name="reading_frequency" id="reading_frequency">
               <option disabled selected>Select Frequency</option>
@@ -268,8 +292,7 @@
               <option>Rarely</option>
             </select>
           </div>
-
-          <div class="input-field">
+           <div class="input-field">
             <label>Do you prefer physical books or e-books?</label>
             <select required name="book_format" id="book_format">
               <option disabled selected>Select Format</option>
@@ -277,7 +300,6 @@
               <option>E-books</option>
             </select>
           </div>
-
           <div class="input-field">
             <label>Would you like to receive recommendations based on your reading history?</label>
             <select required name="receive_recommendations" id="receive_recommendations">
@@ -286,15 +308,10 @@
               <option>No</option>
             </select>
           </div>
-        </div>
-      </div>
 
-      <div class="form">
-        <span class="title">Fill this Form</span><br><br>
-        <div class="fields">
           <div class="input-field">
             <label>Are there any topics or themes that you particularly enjoy reading about?</label>
-            <textarea id="reading_topics" name="reading_topics" rows="3" maxlength="30" required></textarea>
+            <textarea id="reading_topics" name="reading_topics" rows="3" maxlength="30" required ></textarea>
             <small id="reading-topics-counter">0/30</small>
           </div>
         </div>
@@ -399,6 +416,19 @@
     readingTopicsCounter.textContent = `${charactersRemaining}/30`;
   });
 
+ function limitInputLength(inputField, maxLength) {
+    if (inputField.value.length > maxLength) {
+      inputField.value = inputField.value.slice(0, maxLength);
+    }
+  }
+
+  function limitInputLength(inputField, maxLength) {
+    if (inputField.value.length > maxLength) {
+      inputField.value = inputField.value.slice(0, maxLength);
+    }
+  }
+
+
   submitBtn.addEventListener('click', () => {
     submitForm();
   });
@@ -417,4 +447,3 @@
 </body>
 
 </html>
-
