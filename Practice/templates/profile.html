@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile Page</title>
+</head>
+<style>
+.container {
+    width: 400px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+   display: inline-block;
+    padding: 6px 12px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+.editable {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+</style>
+
+<body>
+<h1>Personal Details</h1>
+<div class="container">
+        <form id="profile-form" action="/profile" method="POST" enctype="multipart/form-data">
+        <input type="hidden" id="user-id" value="{{ user['id'] }}">
+
+<label for="first-name">First Name:</label>
+<input type="text" id="first-name" name="first-name" value="{{ user_profile['first_name'] if user_profile and 'first_name' in user_profile else '' }}" contenteditable="true">
+
+           <label for="last-name">Last Name:</label>
+<input type="text" id="last-name" name="last-name" value="{{ user_profile['last_name'] if user_profile and 'last_name' in user_profile else '' }}" contenteditable="true">
+
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" value="{{ user_profile['username'] }}" required contenteditable="true">
+
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" value="{{user_profile['password'] }}" required contenteditable="true">
+
+<label for="email">Email Address:</label>
+<input type="email" id="email" name="email" value="{{ user_profile['email'] }}" required contenteditable="true">
+
+
+            <label for="phone-number">Phone Number:</label>
+<input type="text" id="phone-number" name="phone-number" value="{{ user_profile['phone_number'] if user_profile and 'phone_number' in user_profile else '' }}" required contenteditable="true">
+
+            <label for="country">Country:</label>
+<select id="country" name="country" contenteditable="true">
+    <option value="us" {% if user_profile and user_profile['country'] == 'us' %}selected{% endif %}>United States</option>
+    <option value="uk" {% if user_profile and user_profile['country'] == 'uk' %}selected{% endif %}>United Kingdom</option>
+    <option value="ca" {% if user_profile and user_profile['country'] == 'ca' %}selected{% endif %}>Canada</option>
+    <option value="pak" {% if user_profile and user_profile['country'] == 'pak' %}selected{% endif %}>Pakistan</option>
+    <!-- Add more options as needed -->
+</select>
+
+           <label for="home-address">Home Address:</label>
+<textarea id="home-address" name="home-address" contenteditable="true">{{ user_profile['home_address'] if user_profile and 'home_address' in user_profile else '' }}</textarea>
+
+             <button type="button" id="save-btn">Save</button>
+        </form>
+    </div>
+
+<script src="{{ url_for('static', filename='profile.js') }}"></script>
+</body>
+
+</html>

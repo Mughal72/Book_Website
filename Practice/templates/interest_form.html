@@ -208,11 +208,18 @@
             <label>What genres or types of books do you typically enjoy reading?</label>
             <select required name="genres" id="genres">
               <option disabled selected>Select Favorite genre</option>
-              <option value="mystery">Mystery</option>
-              <option value="romance">Romance</option>
               <option value="science-fiction">Science Fiction</option>
               <option value="fantasy">Fantasy</option>
               <option value="thriller">Thriller</option>
+              <option value="Non-fiction">Non-fiction</option>
+              <option value="Autobiography">Autobiography</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Graphic novel">Graphic novel</option>
+              <option value="Self-help book">Self-help book</option>
+              <option value="Essay">Essay</option>
+              <option value="TextBook">TextBook</option>
+              <option value="Short Story">Short Story</option>
               <!-- Add more genre options as needed -->
             </select>
           </div>
@@ -221,8 +228,6 @@
             <label>Are there any authors you particularly like or are interested in discovering?</label>
             <select required name="authors" id="authors">
               <option disabled selected>Select Books</option>
-              <option>Seymour Papert</option>
-              <option>Bjarne Stroustrup</option>
               <option>Martin Fowler</option>
               <option>Kathy Sierra and Bert Bates</option>
               <option>Robert C. Martin (Uncle Bob)</option>
@@ -232,6 +237,17 @@
               <option>Stuart Russell and Peter Norvig</option>
               <option>Richard S. Sutton and Andrew G. Barto</option>
               <option>Eben Upton</option>
+              <option>Dan W. Patterson</option>
+              <option>James V. Stone</option>
+              <option>George F. Luger</option>
+              <option>Miguel Morales</option>
+              <option> Mohamed Elgendy</option>
+              <option> Tariq Rashid</option>
+              <option> Ethem Alpaydin</option>
+              <option> Andriy Burkov</option>
+              <option> Christopher Hadnagy</option>
+              <option> Peter W. Singer, Allan Friedman</option>
+              <option>John Paul Mueller and Luca Massaron</option>
               <!-- Add more author options as needed -->
             </select>
           </div>
@@ -252,7 +268,7 @@
 
           <div class="input-field">
             <label>What was the last book you read, and what did you think of it?</label>
-         <textarea id="last_book" name="last_book" rows="3" maxlength="40" required></textarea>
+         <textarea id="last_book" name="last_book" rows="3" maxlength="60" required></textarea>
             <small id="last-book-counter">0/40</small>
           </div>
 
@@ -407,8 +423,8 @@
   showForm(currentForm);
 
   lastBookTextarea.addEventListener('input', () => {
-    const charactersRemaining = 40 - lastBookTextarea.value.length;
-    lastBookCounter.textContent = `${charactersRemaining}/40`;
+    const charactersRemaining = 60 - lastBookTextarea.value.length;
+    lastBookCounter.textContent = `${charactersRemaining}/60`;
   });
 
   readingTopicsTextarea.addEventListener('input', () => {
