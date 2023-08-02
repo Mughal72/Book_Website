@@ -3,7 +3,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
 
 body {
-    background-image: url("/static/images/bg.jpg");
+   background-image: url("/static/images/bg.jpg");
     background-repeat: no-repeat;
   background-size: cover;
 }
@@ -244,3 +244,5 @@ a {
 
 
 }
+
+
