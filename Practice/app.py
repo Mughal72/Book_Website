@@ -39,7 +39,6 @@ def signup():
     val = (username, email, password)
     cur.execute(sql, val)
     mysql.connection.commit()
-    cur.close()
 
     # Insert default user profile data into the user_profiles table
     sql = "INSERT INTO user_profiles (username) VALUES (%s)"
