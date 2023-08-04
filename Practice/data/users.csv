@@ -1,0 +1,68 @@
+User-ID,Location,Age,Genres,Author-Name,Last Book Read,ISBN,Ratings,Reading Frequency,Book Format,Receive Recommendations,Preferred Topics,Fiction/Non-Fiction
+amber,Pakistan,22,science-fiction,Tariq Rashid,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,academic books,Non-Fiction
+Alexa,Pakistan,29,AI,John Resig,Artificial Intelligence and Machine Learning for Business,1119245516,2,Monthly,E-books,Yes,academic books,Non-Fiction
+amna_saleem,Pakistan,22,ML,John Resig,Machine Learning for Dummies,1119245516,3,Monthly,E-books,Yes,AI books,Fiction
+user,Austria,30,AI,Martin Fowler,Python for Data Science,1718502206,2,Once a Week,Physical books,Yes,Python Porgramming books,Non-Fiction
+murtasim,Pakistan,30,science-fiction,John Resig,"Python for Data Science
+",1718502206,3,Monthly,E-books,Yes,academic books,Non-Fiction
+aryan,Bangladesh,25,Data Science,Bjarne Stroustrup,Artificial Intelligence and Machine Learning for Business,1081544643,2,Once a Week,E-books,Yes,Machine learning and AI ,Non-Fiction
+user,Austria,30,Cyber Security,Martin Fowler,Python for Data Science,1718502206,2,Once a Week,Physical books,Yes,Programmin books,Non-Fiction
+sherry,Taiwan,24,science-fiction,Tariq Rashid,Broken Leaves by Richard M Pearson,1070488852,2,Occasionally,E-books,Yes,academic books,Fiction
+amina,Pakistan,23,science-fiction,Bjarne Stroustrup,Machine Learning with R,1788295862,3,Monthly,E-books,Yes,Information Technology books,Non-Fiction
+amnaafzal,Pakistan,23,ML,Bjarne Stroustrup,Python for Data Science,1718502206,2,Rarely,E-books,Yes,academic books,Fiction
+kinza,Pakistan,21,AI,Tariq Rashid,"Make Your Own Neural Network
+",1530826608,2,Monthly,E-books,Yes,academic books,Fiction
+unza,Pakistan,22,AI,Martin Fowler,Artificial Intelligence and Machine Learning,9.79E+12,2,Monthly,E-books,Yes,academic books,Fiction
+suman,Pakistan,22,Data Science,Ethem Alpaydin,Machine Learning for Dummies by John Paul Mueller and Luca M,1119245516,4,Monthly,Physical books,Yes,academic books,Non-Fiction
+Rumaisa,Pakistan,22,Cyber Security,Mohamed Elgendy,Machine Learning for Dummies by John Paul Mueller and Luca M,1119245516,4,Once a Week,Physical books,Yes,Programmin books,Non-Fiction
+fiza48,Pakistan,22,AI,Ethem Alpaydin,Machine Learning for Dummies by John Paul Mueller and Luca M,1119245516,4,Monthly,Physical books,Yes,Python Porgramming books,Non-Fiction
+19SW50,Pakistan,23,AI,Ethem Alpaydin,"Make Your Own Neural Network by Tariq Rashid
+",1530826608,2,Monthly,E-books,Yes,academic books,Non-Fiction
+19sw46,Pakistan,23,AI,Miguel Morales,Make Your Own Neural Network by Tariq Rashid,1530826608,3,Monthly,Physical books,Yes,academic books,Non-Fiction
+19sw122,Pakistan,22,Cyber Security,Tariq Rashid,"Fundamentals of Machine Learning for Predictive Data Analytics: Algorithms, Worked Examples, and Case Studies",262029448,4.2,Rarely,E-books,Yes,computer science books,Fiction
+19sw121,Pakistan,22,Cyber Security,Tariq Rashid,"Fundamentals of Machine Learning for Predictive Data Analytics: Algorithms, Worked Examples, and Case Studies",262029448,3.5,Rarely,E-books,Yes,mathematics,Fiction
+19SW16,Pakistan,23,Data Science,Mohamed Elgendy,Broken Leaves by Richard M Pearson,1070488852,2.4,Monthly,E-books,Yes,big data and data warehousing books,Fiction
+19sw56,Pakistan,23,Cyber Security,Mohamed Elgendy,Broken Leaves by Richard M Pearson,1070488852,2.5,Monthly,Physical books,Yes,Cloud Computing,Non-Fiction
+19sw125,Pakistan,22,Data Science,Miguel Morales,Make Your Own Neural Network by Tariq Rashid,1530826608,3,Rarely,Physical books,Yes,quantum computing books,Fiction
+anber,Pakistan,22,ML,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,business analytics books,Non-Fiction
+arooba,Pakistan,25,ML,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,educational books,Non-Fiction
+alishba,Austria,25,science-fiction,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,academic books,Non-Fiction
+aliabbasi,Pakistan,26,science-fiction,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,academic books,Non-Fiction
+abbas,Austria,30,science-fiction,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,Cloud Computing,Non-Fiction
+haider,Austria,19,ML,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,academic books,Non-Fiction
+aliyan,Austria,20,ML,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,AI books,Non-Fiction
+mariyam,Austria,21,fiction,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,Cloud Computing,Non-Fiction
+areeb,Pakistan,22,Cyber Security,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,Cloud Computing,Non-Fiction
+kartik,London,25,Data Science,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,Cloud Computing,Non-Fiction
+patrik,London,23,AI,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,big data and data warehousing books,Non-Fiction
+peter,London,31,ML,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",152095140x,4,Monthly,E-books,Yes,Cloud Computing,Non-Fiction
+adeel,Pakistan,23,AI,Eric Evans,Life 3.0: Being Human in the Age of Artificial Intelligence,1101946598,3,Rarely,E-books,Yes,Mobile Application development,Non-Fiction
+harry,India,29,Non-fiction,Mohamed Elgendy,The Art of Software Security Assessment,321444426,5,Monthly,E-books,Yes,Web development books,Non-Fiction
+shaurya,India,30,Ai,Mohamed Elgendy,The Art of Software Security Assessment,321444426,4,Rarely,Physical books,Yes,AI books,Non-Fiction
+Sinha,India,28,Cyber Security, Thomas Kranz,Making Sense of Cybersecurity,978-1617298004,3,Occasionally,Physical books,Yes,academic books,Non-Fiction
+waseem,Pakistan,33,ML,Machine Learning and Human Intelligence: The future of education for the 21st century ,Rosemary Luckin ,1782772510,4,Monthly,Physical books,Yes,academic books,Non-Fiction
+shuja,Pakistan,35,Cloud Computing,Cloud Computing and Big Data,"C. Catlett, W. Gentzsch, L. Grandinetti",161499322X,3,Rarely,Physical books,Yes,Cloud Computing,Non-Fiction
+haider,Pakistan,25,AI,Hands-On Machine Learning with Scikit-Learn and TensorFlow,Aurélien Géron,1492032646,2.4,Once a Week,Physical books,Yes,AI books,Fiction
+adil,Pakistan,23,AI,Hands-On Machine Learning with Scikit-Learn and TensorFlow,Aurélien Géron,1492032646,3,Monthly,E-books,Yes,academic books,Non-Fiction
+alisha,London,28,Cyber Security, Thomas Kranz,Making Sense of Cybersecurity,978-1617298004,2.5,Rarely,E-books,Yes,Mobile Application development,Non-Fiction
+kriti,India,29,Cyber Security, Thomas Kranz,Making Sense of Cybersecurity,978-1617298004,3,Once a Week,Physical books,Yes,big data and data warehousing books,Non-Fiction
+sidharth,India,29,ML,Mohamed Elgendy,"Machine Learning for Absolute Beginners
+",1782772510,4,Occasionally,Physical books,Yes,Programmin books,Fiction
+karan,India,29,Cloud Computing,Cloud Computing and Big Data,"C. Catlett, W. Gentzsch, L. Grandinetti",161499322X,5,Rarely,Physical books,Yes,Python Porgramming books,Fiction
+alia,London,29,Cloud Computing,Cloud Computing and Big Data,"C. Catlett, W. Gentzsch, L. Grandinetti",161499322X,2.5,Monthly,E-books,Yes,Python Porgramming books,Non-Fiction
+James,Austria,30,Cloud Computing,Cloud Computing and Big Data,"C. Catlett, W. Gentzsch, L. Grandinetti",161499322X,3,Monthly,E-books,Yes,Cloud Computing,Non-Fiction
+Jammy,Austria,28,Cyber Security, Thomas Kranz,Making Sense of Cybersecurity,978-1617298004,2.4,Rarely,Physical books,Yes,AI books,Fiction
+Jarry,Austria,20,Cloud Computing,"Cloud Computing Simplified: Explore Application of Cloud, Cloud Deployment Models, Service Models and Mobile Cloud Computing", Surbhi Rastogi ,9390684358,3,Rarely,E-books,Yes,Programmin books,Non-Fiction
