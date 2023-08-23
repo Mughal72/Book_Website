@@ -4,198 +4,7 @@
     <title>Welcome to Book Mania</title>
      <!-- boxicons link -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <style>
-
-    /* popular books css*/
- .top {
-        text-align: center;
-        font-size: 40px;
-        margin-bottom: 30px;
-        weight: bold;
-    }
-
-    .book-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .book-wrapper {
-        width: 220px;
-        margin-right: 20px;
-    }
-    .book {
-        width: 200px;
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    .book img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-        object-fit: cover;
-    }
-
-    .book-details h3 {
-        font-size: 18px;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .book-details p {
-        font-size: 14px;
-        margin-bottom: 5px;
-        color: black;
-    }
-
-    .rating {
-        display: flex;
-        align-items: center;
-    }
-
-    .rating-value {
-        font-size: 14px;
-        margin-right: 5px;
-    }
-
-    .stars {
-        font-size: 16px;
-        color: #ffc107;
-    }
-
-    .stars::before {
-        content: "\2605\2605\2605\2605\2605";
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
-        width: 80px;
-        letter-spacing: 1px;
-    }
-
-    .stars:hover::before {
-        content: "\2605\2605\2605\2605\2605";
-    }
-
-         @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
-        body {
-            background-repeat: no-repeat;
-            background-size: cover;
-
-        }
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Cambo', serif;
-}
-
-       .header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-
-        }
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-             max-width: 1100px;
-              margin: 10 auto;
-               display: flex;
-              height: 100%;
-
-        }
-
-        .nav_logo {
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .nav_items {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav_item {
-            margin-left: 10px;
-             display: flex;
-              height: 100%;
-              align-items: center;
-              justify-content: space-between;
-        }
-
-        .nav_link {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 10px;
-        }
-
-        .front {
-            text-align: center;
-            margin-top: 100px;
-            font-size: 24px;
-        }
-
-    .nav_link:hover {
-  color: #d9d9d9;
-}
-
-#username {
-  position: absolute;
-  top: 5px;
-  right: 0;
-  font-size: small;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-left: 10px;
-}
-
-.dropbtn {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-.show {
-  display: block;
-}
-
-   </style>
+     <link rel="stylesheet" href="{{ url_for('static', filename='welcome.css') }}" />
 
 </head>
 <body>
@@ -224,7 +33,7 @@
 
     <h1 id="username" class="front">Welcome, {{ username }}!</h1><br>
 
-  <!-- Popular Books Section -->
+   <!-- Popular Books Section -->
    <h2 class="top">Top Popular Books</h2>
 <div class="book-container">
     {% for index, book in popular_books.iterrows() %}
@@ -241,43 +50,23 @@
     </div>
     {% endfor %}
 </div>
-     <script>
-      // JavaScript code
-        // Add your JavaScript code here if needed
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('username');
-        if (username) {
-            const usernameElement = document.getElementById('username');
-            usernameElement.textContent = username;
-        }
 
-        const usernameElement = document.getElementById('username');
-        if (usernameElement) {
-            // Hide username after 4 seconds
-            setTimeout(() => {
-                usernameElement.style.visibility = 'hidden';
-            }, 4000);
-        }
-
-function toggleDropdown() {
-            var dropdown = document.getElementById("myDropdown");
-            dropdown.classList.toggle("show");
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
+<div class="recommended-books">
+    <h2>Recommended Books</h2>
+    <div class="slideshow-container">
+        {% for index, book in recommendations.iterrows() %}
+        <div class="book-slide fade" style="display: {{ 'block' if index == 0 else 'none' }}">
+            <img src="{{ book['Image-URL'] }}" alt="Book Cover">
+            <h3>{{ book['Book-Title'] }}</h3>
+            <p>Author: {{ book['Author-Name'] }}</p>
+            <p>Ratings: {{ book['Ratings'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 
+    <script src="{{ url_for('static', filename='welcome.js') }}"></script>
 
-    </script>
 </body>
 </html>
