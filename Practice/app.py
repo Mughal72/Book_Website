@@ -1,11 +1,12 @@
 import csv
-
 from flask import Flask, render_template, request, redirect, flash, session, jsonify, url_for
 from flask_mysqldb import MySQL
 import os
 import random
 import string
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
 
 app = Flask(__name__)
 
@@ -19,6 +20,33 @@ mysql = MySQL(app)
 
 # Secret key for flashing messages
 app.secret_key = "8f4e74efb806979fbaa51faa46d66088"
+
+# Load the books and users datasets
+books_df = pd.read_csv("data/books.csv", encoding='latin-1')
+users_df = pd.read_csv("data/users.csv", encoding='latin-1')
+
+# Combine relevant columns from books and users datasets
+books_df['Features'] = books_df['Genres'] + ' ' + books_df['Author-Name']
+users_df['Features'] = users_df['Genres'] + ' ' + users_df['Author-Name'] + ' ' + users_df['Preferred Topics']
+
+# Create a TF-IDF vectorizer
+tfidf_vectorizer = TfidfVectorizer(stop_words='english')
+
+# Fit and transform the TF-IDF vectors for books and users
+books_tfidf_matrix = tfidf_vectorizer.fit_transform(books_df['Features'])
+users_tfidf_matrix = tfidf_vectorizer.transform(users_df['Features'])
+
+# Compute the cosine similarity between books and users
+cosine_sim = linear_kernel(users_tfidf_matrix, books_tfidf_matrix)
+
+
+def get_personalized_recommendations(user_name, num_recommendations=10):
+    user_idx = users_df[users_df['User-ID'] == user_name].index[0]
+    sim_scores = list(enumerate(cosine_sim[user_idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:num_recommendations + 1]
+    book_indices = [i[0] for i in sim_scores]
+    return books_df.iloc[book_indices]
 
 
 @app.route('/')
@@ -148,14 +176,18 @@ def welcome():
         # Get the popular books
         popular_books = get_popular_books()
 
-        # # Remove username after 4 seconds
-        # time.sleep(4)
-        # session.pop('username', None)
+        # Get the personalized book recommendations
+        recommendations = get_personalized_recommendations(username, num_recommendations=10)
 
         return render_template('welcome.html', username=username, email=user_data['email'],
-                               password=user_data['password'], popular_books=popular_books)
+                               password=user_data['password'], popular_books=popular_books,
+                               recommendations=recommendations)
     else:
         return redirect('/login')
+
+    # # Remove username after 4 seconds
+    # time.sleep(4)
+    # session.pop('username', None)
 
 
 @app.route('/logout')
