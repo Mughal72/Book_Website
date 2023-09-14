@@ -28,9 +28,13 @@
             <a href="#" class="nav_link">Contact</a>
           </li>
         </ul>
+         <form action="/search" method="POST" class="search-form">
+                <input type="text" name="search_query" id="search_query" placeholder="Search for books by title or author">
+                <button type="submit">Search</button>
+            </form>
         <button class="button" id="form-open">Login</button>
-
       </nav>
+
     </header>
     <!-- Home -->
     <section class="home">
@@ -91,9 +95,27 @@
           </form>
         </div>
       </div>
+
+        <!-- Display popular books here -->
+        <div class="popular-books">
+            <h2>Top Popular Books</h2>
+            <div class="book-container">
+                {% for index, book in popular_books.iterrows() %}
+                <div class="book">
+                    <img src="{{ book['Image-URL'] }}" alt="Book Cover">
+                    <div class="book-details">
+                        <h3>{{ book['Book-Title'] }}</h3>
+                        <p>Author: {{ book['Author-Name'] }}</p>
+                        <div class="rating">
+                            <p class="rating-value">Ratings: {{ book['Ratings'] }}</p>
+                            <span class="stars"></span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </section>
-
-
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>

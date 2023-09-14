@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cambo', serif;
+}
+       .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+             max-width: 1100px;
+              margin: 10 auto;
+               display: flex;
+              height: 100%;
+
+        }
+
+        .nav_logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav_items {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav_item {
+            margin-left: 10px;
+             display: flex;
+              height: 100%;
+              align-items: center;
+              justify-content: space-between;
+        }
+
+        .nav_link {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .front {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 24px;
+        }
+
+    .nav_link:hover {
+  color: #d9d9d9;
+}
+
+        /* Style for the not-in-stock section */
+        .not-in-stock {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Style for the heading */
+        .not-in-stock h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the message text */
+        .not-in-stock p {
+            font-size: 24px;
+            color: #555;
+        }
+
+        /* Style for the sad emoji or cartoon image */
+        .emoji {
+            max-width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+        }
+
+        /* Add styles for the search bar */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+}
+
+.search-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+    </style>
+    <title>No Search Results</title>
+</head>
+<body>
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav_logo">Book Mania</a>
+        <ul class="nav_items">
+          <li class="nav_item">
+            <a href="#" class="nav_link">Home</a>
+            <a href="#" class="nav_link">Product</a>
+            <a href="#" class="nav_link">Services</a>
+            <a href="#" class="nav_link">Contact</a>
+          </li>
+        </ul>
+         <form action="/search" method="POST" class="search-form">
+                <input type="text" name="search_query" id="search_query" placeholder="Search for books by title or author">
+                <button type="submit">Search</button>
+            </form>
+      </nav>
+    </header>
+
+    <section class="not-in-stock">
+        <h1>Book Not in Stock</h1>
+        <p>We're sorry, but the book "{{ search_query }}" is currently not available in our stock. Please check back later or explore our other books.</p>
+        <img class="emoji" src="{{ url_for('static', filename='images/emoji.png') }}" alt="Sad Emoji or Cartoon">
+
+    </section>
+
+</body>
+</html>
