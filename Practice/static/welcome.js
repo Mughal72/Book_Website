@@ -32,23 +32,37 @@ function toggleDropdown() {
         }
 
 
-let slideIndex = 0;
-showSlides();
+// Wait for the DOM to be fully loaded before running the JavaScript
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize slideIndex
+    let slideIndex = 0;
 
-function showSlides() {
-    let slides = document.getElementsByClassName("book-slide");
+    // Call the showSlides function to start the slideshow
+    showSlides();
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    function showSlides() {
+        // Get all elements with the class "book-slide"
+        let slides = document.getElementsByClassName("book-slide");
+
+        // Hide all slides by default
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        // Increment slideIndex
+        slideIndex++;
+
+        // Reset slideIndex if it exceeds the number of slides
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        // Display the current slide
+        slides[slideIndex - 1].style.display = "block";
+
+        // Change slide every 5 seconds
+        setTimeout(showSlides, 5000);
     }
+});
 
-    slideIndex++;
-
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 5000); // Change slide every 5 seconds
-}
 

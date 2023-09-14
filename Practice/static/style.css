@@ -3,7 +3,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
 
 body {
-   background-image: url("/static/images/bg.jpg");
+
     background-repeat: no-repeat;
   background-size: cover;
 }
@@ -241,8 +241,98 @@ a {
   text-align:center;
   color: #FFC0CB;
    display: inline-block;
-
-
 }
+
+/* Add styles for the search bar */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+}
+
+.search-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* popular books css*/
+ .top {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 30px;
+        weight: bold;
+    }
+
+    .book-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .book-wrapper {
+        width: 220px;
+        margin-right: 20px;
+    }
+    .book {
+        width: 200px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .book img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        object-fit: cover;
+    }
+
+    .book-details h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .book-details p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: black;
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+    }
+
+    .rating-value {
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .stars {
+        font-size: 16px;
+        color: #ffc107;
+    }
+
+    .stars::before {
+        content: "\2605\2605\2605\2605\2605";
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        width: 80px;
+        letter-spacing: 1px;
+    }
+
+    .stars:hover::before {
+        content: "\2605\2605\2605\2605\2605";
+    }
 
 
