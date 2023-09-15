@@ -227,7 +227,7 @@
     to {opacity: 1}
 }
 
-/* Add styles for the search bar */
+/* Style for the search bar */
 .search-form {
     display: flex;
     align-items: center;
@@ -235,8 +235,9 @@
 
 .search-form input[type="text"] {
     padding: 10px;
-    width: 300px;
+    width: 400px;
     border: 1px solid #ccc;
+    margin-right: 10px; /* Add margin to the right of the text field */
 }
 
 .search-form button {
@@ -245,4 +246,5 @@
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    width: 90px;
 }
