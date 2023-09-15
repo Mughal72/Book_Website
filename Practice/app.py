@@ -41,17 +41,60 @@ cosine_sim = linear_kernel(users_tfidf_matrix, books_tfidf_matrix)
 
 
 def get_personalized_recommendations(user_name, num_recommendations=10):
-    user_idx = users_df[users_df['User-ID'] == user_name].index[0]
-    sim_scores = list(enumerate(cosine_sim[user_idx]))
-    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-    sim_scores = sim_scores[1:num_recommendations + 1]
-    book_indices = [i[0] for i in sim_scores]
-    return books_df.iloc[book_indices]
+    user_idx = users_df[users_df['User-ID'] == user_name].index
+    if not user_idx.empty:
+        user_idx = user_idx[0]
+        sim_scores = list(enumerate(cosine_sim[user_idx]))
+        sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+        sim_scores = sim_scores[1:num_recommendations + 1]
+        book_indices = [i[0] for i in sim_scores]
+        return books_df.iloc[book_indices]
+    else:
+        # Handle the case where the user is not found
+        return pd.DataFrame()  # Return an empty DataFrame or any other appropriate response
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Get the popular books
+    popular_books = get_popular_books()
+
+    return render_template('index.html', popular_books=popular_books)
+
+
+@app.route('/search', methods=['POST'])
+def search():
+    if request.method == 'POST':
+        # Get the search query from the form
+        search_query = request.form['search_query']
+
+        # Perform a search in your book dataset (books_df)
+        # You can filter books based on title or author name using Pandas
+        # Here's a simple example:
+        search_query = search_query.lower()
+        search_results = books_df[
+            books_df['Book-Title'].str.lower().str.contains(search_query) |
+            books_df['Author-Name'].str.lower().str.contains(search_query)
+        ]
+
+        if not search_results.empty:
+            print("Search Results Found:", search_results)
+            # Render the results template
+            return render_template('search_results.html', search_results=search_results)
+        else:
+            print("No Results Found")
+            # If no results are found, get book suggestions from your dataset
+            # You can use any logic to generate book suggestions, for example, top-rated books
+            book_suggestions = get_book_suggestions()
+
+            # Render the "not in stock" template with book suggestions
+            return render_template('not_in_stock.html', search_query=search_query, book_suggestions=book_suggestions)
+
+
+def get_book_suggestions():
+    # Example: Get top-rated books as suggestions (you can modify this)
+    top_rated_books = books_df.sort_values(by='Ratings', ascending=False).head(5)
+    return top_rated_books
 
 
 @app.route('/signup', methods=['POST'])
@@ -122,7 +165,10 @@ def submit_interests():
 
 @app.route('/login')
 def login():
-    return render_template('index.html')
+    # Get the popular books
+    popular_books = get_popular_books()
+
+    return render_template('index.html', popular_books=popular_books)
 
 
 @app.route('/authenticate', methods=['POST'])
@@ -156,7 +202,7 @@ def get_popular_books():
         {'Ratings': 'mean', 'Author-Name': 'first', 'Image-URL': 'first'}).reset_index()
 
     # Sort the books based on average ratings in descending order
-    popular_books = book_ratings.sort_values('Ratings', ascending=False).head(30)
+    popular_books = book_ratings.sort_values('Ratings', ascending=False).head(20)
 
     return popular_books
 
