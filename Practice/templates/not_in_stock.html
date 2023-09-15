@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Cambo', serif;
-}
-       .header {
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cambo', serif;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        .header {
             background-color: #333;
             color: #fff;
             padding: 20px;
-
         }
+
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-             max-width: 1100px;
-              margin: 10 auto;
-               display: flex;
-              height: 100%;
-
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            height: 100%;
         }
 
         .nav_logo {
@@ -44,10 +48,10 @@
 
         .nav_item {
             margin-left: 10px;
-             display: flex;
-              height: 100%;
-              align-items: center;
-              justify-content: space-between;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .nav_link {
@@ -56,62 +60,116 @@
             margin-left: 10px;
         }
 
-        .front {
-            text-align: center;
-            margin-top: 100px;
-            font-size: 24px;
+        /* Add styles for the search bar */
+        .search-form {
+            display: flex;
+            align-items: center;
         }
 
-    .nav_link:hover {
-  color: #d9d9d9;
+        .search-form input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+
+        .search-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+       /* Styling for the "not-in-stock" section */
+.not-in-stock {
+    background-color: #f5f5f5;
+    padding: 40px 0;
+    text-align: center;
 }
 
-        /* Style for the not-in-stock section */
-        .not-in-stock {
-            text-align: center;
-            padding: 20px;
-        }
+.not-in-stock .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
-        /* Style for the heading */
-        .not-in-stock h1 {
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 10px;
-        }
+.not-in-stock h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
 
-        /* Style for the message text */
-        .not-in-stock p {
-            font-size: 24px;
-            color: #555;
-        }
+.not-in-stock p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+}
 
-        /* Style for the sad emoji or cartoon image */
-        .emoji {
-            max-width: 90px;
+.not-in-stock .emoji {
+    max-width: 100px;
     height: auto;
     display: block;
     margin: 0 auto;
-        }
+}
 
-        /* Add styles for the search bar */
-.search-form {
+/* Styling for the "suggestions" section */
+.suggestions {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.suggestions .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.suggestions .suggestion-list {
+    list-style: none;
+    padding: 0;
+}
+
+.suggestions .suggestion-item {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
 }
 
-.search-form input[type="text"] {
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
+.suggestions .suggestion-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-.search-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+.suggestions .suggestion-item img {
+    max-width: 80px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 4px;
 }
+
+.suggestions .suggestion-item h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.suggestions .suggestion-item p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 0;
+}
+
 
     </style>
     <title>No Search Results</title>
@@ -134,13 +192,31 @@
             </form>
       </nav>
     </header>
-
-    <section class="not-in-stock">
-        <h1>Book Not in Stock</h1>
-        <p>We're sorry, but the book "{{ search_query }}" is currently not available in our stock. Please check back later or explore our other books.</p>
-        <img class="emoji" src="{{ url_for('static', filename='images/emoji.png') }}" alt="Sad Emoji or Cartoon">
-
+ <section class="not-in-stock">
+        <div class="container">
+            <h1>Book Not in Stock</h1>
+            <p>We're sorry, but the book "{{ search_query }}" is currently not available in our stock. Please check back later or explore our other books.</p>
+            <img class="emoji" src="{{ url_for('static', filename='images/emoji.png') }}" alt="Sad Emoji or Cartoon">
+        </div>
     </section>
+        <!-- Suggestions Section -->
+        <section class="suggestions">
+            <div class="container">
+            <h2>Explore these books instead:</h2>
+            <ul class="suggestion-list">
+                {% for book in book_suggestions.iterrows() %}
+                <li class="suggestion-item">
+                    <img src="{{ book[1]['Image-URL'] }}" alt="{{ book[1]['Book-Title'] }} Cover">
+                    <div>
+                        <h3>{{ book[1]['Book-Title'] }}</h3>
+                        <p>Author: {{ book[1]['Author-Name'] }}</p>
+                        <p>Ratings: {{ book[1]['Ratings'] }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+                 </div>
+        </section>
 
 </body>
 </html>

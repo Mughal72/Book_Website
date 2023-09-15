@@ -67,20 +67,86 @@ a {
             margin-left: 10px;
         }
 
-
-
 .nav_link:hover {
   color: #d9d9d9;
 }
-
+<!--profile form css -->
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cambo', serif;
+    background-size: cover;
+    background-color: #f5f5f5;
+}
 .container {
-    width: 400px;
+    max-width: 400px;
     margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    top:20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 label {
     display: block;
+    font-size: 16px;
     margin-top: 10px;
+}
+
+/* Different label colors for various fields */
+label[for="first-name"] {
+    color: #007bff; /* Blue color for First Name */
+}
+
+label[for="last-name"] {
+    color: #ff6b6b; /* Red color for Last Name */
+}
+
+label[for="username"] {
+    color: #40ad52; /* Green color for Username */
+}
+
+label[for="password"] {
+    color: #f7b500; /* Yellow color for Password */
+}
+
+label[for="email"] {
+    color: #aa80ff; /* Purple color for Email */
+}
+
+label[for="phone-number"] {
+    color: #ff8c00; /* Orange color for Phone Number */
+}
+
+label[for="country"] {
+    color: #4caf50; /* Dark Green color for Country */
+}
+
+label[for="home-address"] {
+    color: #e91e63; /* Pink color for Home Address */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9;
 }
 
 input[type="file"] {
@@ -88,32 +154,46 @@ input[type="file"] {
 }
 
 .custom-file-upload {
-   display: inline-block;
+    display: inline-block;
     padding: 6px 12px;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
+    background-color: #007bff; /* Blue color for the button */
+    color: #fff;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
+    font-size: 16px;
 }
 
 button {
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 10px;
+    background-color: #007bff; /* Blue color for the button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover,
+.custom-file-upload:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .editable {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    font-size: 16px;
+    color: #007bff; /* Blue color for editable text */
 }
 
-<!--/* Add styles for the search bar */-->
+.editable:hover {
+    text-decoration: underline;
+}
+
+/* Style for the search bar */
 .search-form {
     display: flex;
     align-items: center;
@@ -121,8 +201,9 @@ button {
 
 .search-form input[type="text"] {
     padding: 10px;
-    width: 300px;
+    width: 400px;
     border: 1px solid #ccc;
+    margin-right: 10px; /* Add margin to the right of the text field */
 }
 
 .search-form button {
@@ -131,7 +212,9 @@ button {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    width: 90px;
 }
+
 </style>
 
 <body>
