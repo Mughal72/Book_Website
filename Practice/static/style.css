@@ -56,6 +56,10 @@ a {
               justify-content: space-between;
         }
 
+        .nav_link:hover {
+  color: brown;
+}
+
         .nav_link {
             color: #fff;
             text-decoration: none;
@@ -67,9 +71,6 @@ a {
   color: #fff;
 }
 
-.nav_link:hover {
-  color: #d9d9d9;
-}
 .button {
   padding: 6px 24px;
   border: 2px solid #fff;
