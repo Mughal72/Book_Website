@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+/* Import Google font - Cambo */
+
+  @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
+
+  .header-nav {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+             max-width: 1100px;
+              margin: 10 auto;
+               display: flex;
+              height: 50px;
+        }
+
+        .nav_logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: 'Cambo', serif;
+
+        }
+
+        .nav_items {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            font-family: 'Cambo', serif;
+        }
+
+        .nav_item {
+            margin-left: 10px;
+             display: flex;
+              height: 100%;
+              align-items: center;
+              justify-content: space-between;
+              font-family: 'Cambo', serif;
+        }
+
+        .nav_link {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+.nav_link:hover {
+  color: brown;
+}
+/* Style for the search bar */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    width: 400px;
+    border: 1px solid #ccc;
+    margin-right: 10px; /* Add margin to the right of the text field */
+}
+
+.search-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 90px;
+}
+</style>
+<body>
+<!-- header.html -->
+<header class="header-nav">
+    <nav class="nav">
+        <a href="#" class="nav_logo">Book Mania</a>
+        <ul class="nav_items">
+            <li class="nav_item">
+                <a href="{{ url_for('index') }}" class="nav_link">Home</a>
+                <a href="{{ url_for('shop') }}" class="nav_link">Shop</a>
+                <a href="#" class="nav_link">Services</a>
+                <a href="#" class="nav_link">Contact</a>
+            </li>
+        </ul>
+        <form action="/search" method="POST" class="search-form">
+            <input type="text" name="search_query" id="search_query" placeholder="Search for books by title or author">
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+</header>
+
+</body>
+</html>
