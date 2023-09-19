@@ -25,7 +25,8 @@
            <a href="{{ url_for('index') }}" class="nav_link">Home</a>
               <a href="{{ url_for('shop') }}" class="nav_link">Shop</a>
             <a href="#" class="nav_link">Services</a>
-            <a href="#" class="nav_link">Contact</a>
+               <a href="{{ url_for('about') }}" class="nav_link">About Us</a>
+            <a href="{{ url_for('contact') }}" class="nav_link">Contact</a>
           </li>
         </ul>
          <form action="/search" method="POST" class="search-form">
@@ -96,9 +97,32 @@
         </div>
       </div>
 
+      <!-- Featured Books Section -->
+<section class="featured-books">
+    <h2>Featured Books of the Month</h2>
+    <div class="featured-slider">
+        <div class="slider-content">
+            {% for index, book in featured_books.iterrows() %}
+            <div class="featured-book">
+                <img src="{{ book['Image-URL'] }}" alt="Featured Book">
+                <h3>{{ book['Book-Title'] }}</h3>
+                <p>Author: {{ book['Author-Name'] }}</p>
+                <p class="rating">Ratings: {{ book['Ratings'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <button id="prev-btn">Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+</section>
+
         <!-- Display popular books here -->
         <div class="popular-books">
-            <h2>Top Popular Books</h2>
+            <h2 class="bookheading">Top Popular Books</h2>
             <div class="book-container">
                 {% for index, book in popular_books.iterrows() %}
                 <div class="book">
@@ -115,7 +139,9 @@
                 {% endfor %}
             </div>
         </div>
+        {% include 'footer.html' %}
     </section>
+
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+
+     @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
+     /* Reset some default styles */
+     /* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.about {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+}
+
+/* Intro Section Styles */
+.intro {
+    background-color: #f8f8f8; /* Light gray background color */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.us, .mission, .explore, .menu, .items, .highlight {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555; /* Slightly dark text color */
+}
+
+.highlight {
+    color: #FF5722; /* Highlight color (orange) */
+    font-weight: bold;
+}
+
+.menu {
+    list-style-type: disc;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.items {
+    margin-top: 10px;
+}
+
+/* Team Section Styles */
+.team-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f8f8; /* Light gray background color */
+    border-radius: 10px;
+}
+
+.OurTeam {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+    text-align: center;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    width: 280px;
+    margin: 20px;
+    text-align: center;
+}
+
+.team-member img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+.leader, .member {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #333; /* Dark text color */
+}
+
+.team-member p {
+    color: #666; /* Slightly dark text color */
+    margin-top: 10px;
+}
+
+
+<!--  footer section  -->
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.footer {
+  position: absolute;
+  top: 160%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background: #10182F;
+  border-radius: 6px;
+  margin-bottom: 100px;
+}
+
+.footer .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3.5rem;
+  padding: 60px;
+}
+
+.footer-row .footer-col h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.footer-col .links {
+  margin-top: 20px;
+}
+
+.footer-col .links li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.footer-col .links li a {
+  text-decoration: none;
+  color: #bfbfbf;
+}
+
+.footer-col .links li a:hover {
+  color: #fff;
+}
+
+.footer-col p {
+  margin: 20px 0;
+  color: #bfbfbf;
+  max-width: 300px;
+}
+
+.footer-col form {
+  display: flex;
+  gap: 5px;
+}
+
+.footer-col input {
+  height: 40px;
+  border-radius: 6px;
+  background: none;
+  width: 100%;
+  outline: none;
+  border: 1px solid #7489C6 ;
+  caret-color: #fff;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.footer-col input::placeholder {
+  color: #ccc;
+}
+
+ .footer-col form button {
+  background: white;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.footer-col form button:hover {
+  background: #cecccc;
+}
+
+.footer-col .icons {
+  display: flex;
+  margin-top: 30px;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.footer-col .icons i {
+  color: #afb6c7;
+}
+
+.footer-col .icons i:hover  {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .footer .footer-row {
+    padding: 20px;
+    gap: 1rem;
+  }
+
+  .footer-col form {
+    display: block;
+  }
+
+  .footer-col form :where(input, button) {
+    width: 100%;
+  }
+
+  .footer-col form button {
+    margin: 10px 0 0 0;
+  }
+}
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+ <div class="container">
+        <h1 class="about">About Us</h1>
+        <div class="intro">
+            <p class="us">Welcome to <span class="highlight">Book Mania</span>, your one-stop destination for discovering and exploring a wide range of books.</p>
+            <p class="mission">Our mission is to connect book lovers with their favorite authors and literary works. Whether you're an avid reader or just getting started, we have something for everyone.</p>
+            <p class="explore">At <span class="highlight">Book Mania</span>, you can:</p>
+            <ul class="menu">
+                <li class="items">Find a vast collection of books across various genres.</li>
+                <li class="items">Read and write book reviews to help other readers make informed choices.</li>
+                <li class="items">Receive personalized book recommendations based on your interests.</li>
+                <li class="items">Connect with fellow book enthusiasts through our community forums.</li>
+            </ul>
+        </div>
+        <div class="team-section">
+            <h2 class="OurTeam">Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="team-member1.jpg" alt="Team Member 1">
+                    <h3 class="leader">Anber Sattar</h3>
+                    <p>Co-Founder & Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team-member2.jpg" alt="Team Member 2">
+                    <h3 class="member">Unza Sheikh</h3>
+                    <p>Lead Designer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--footer section-->
+      <section class="footer">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul class="links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Compressions</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Collection</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="links">
+            <li><a href="#">Free Designs</a></li>
+            <li><a href="#">Latest Designs</a></li>
+            <li><a href="#">Themes</a></li>
+            <li><a href="#">Popular Designs</a></li>
+            <li><a href="#">Art Skills</a></li>
+            <li><a href="#">New Uploads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="links">
+            <li><a href="#">Customer Agreement</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">GDPR</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Media Kit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>
+            Subscribe to our newsletter for a weekly dose
+            of news, updates, helpful tips, and
+            exclusive offers.
+          </p>
+          <form action="#">
+            <input type="text" placeholder="Your email" required>
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+          <div class="icons">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</body>
+</html>
