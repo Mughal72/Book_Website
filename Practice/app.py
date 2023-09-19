@@ -54,12 +54,22 @@ def get_personalized_recommendations(user_name, num_recommendations=10):
         return pd.DataFrame()  # Return an empty DataFrame or any other appropriate response
 
 
+# Function to get featured books (you can customize this)
+def get_featured_books(min_rating=4.0, num_books=15):
+    # Get books with ratings above the specified threshold
+    featured_books = books_df[books_df['Ratings'] > min_rating].head(num_books)
+    return featured_books
+
+
 @app.route('/')
 def index():
     # Get the popular books
     popular_books = get_popular_books()
 
-    return render_template('index.html', popular_books=popular_books)
+    # Get featured books
+    featured_books = get_featured_books()
+
+    return render_template('index.html', popular_books=popular_books, featured_books=featured_books)
 
 
 @app.route('/search', methods=['POST'])
@@ -75,7 +85,7 @@ def search():
         search_results = books_df[
             books_df['Book-Title'].str.lower().str.contains(search_query) |
             books_df['Author-Name'].str.lower().str.contains(search_query)
-        ]
+            ]
 
         if not search_results.empty:
             print("Search Results Found:", search_results)
@@ -301,8 +311,17 @@ def profile():
 
 @app.route('/shop')
 def shop():
-
     return render_template('shop.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about-us.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 
 if __name__ == '__main__':
