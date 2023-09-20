@@ -32,37 +32,51 @@ function toggleDropdown() {
         }
 
 
-// Wait for the DOM to be fully loaded before running the JavaScript
-document.addEventListener("DOMContentLoaded", function() {
-    // Initialize slideIndex
-    let slideIndex = 0;
+// JavaScript for Recommended Books Slider
+const recommendedSliderContent = document.querySelector(".recommended-slider .slider-content");
+const prevRecommendedBtn = document.getElementById("prev-recommended-btn");
+const nextRecommendedBtn = document.getElementById("next-recommended-btn");
+const recommendedBooks = document.querySelectorAll(".recommended-book");
+const booksPerPageRecommended = 5; // Number of recommended books to display per page
+let currentPageRecommended = 1;
 
-    // Call the showSlides function to start the slideshow
-    showSlides();
-
-    function showSlides() {
-        // Get all elements with the class "book-slide"
-        let slides = document.getElementsByClassName("book-slide");
-
-        // Hide all slides by default
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-
-        // Increment slideIndex
-        slideIndex++;
-
-        // Reset slideIndex if it exceeds the number of slides
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-
-        // Display the current slide
-        slides[slideIndex - 1].style.display = "block";
-
-        // Change slide every 5 seconds
-        setTimeout(showSlides, 5000);
+// Next Button Click
+nextRecommendedBtn.addEventListener("click", () => {
+    if (currentPageRecommended < Math.ceil(recommendedBooks.length / booksPerPageRecommended)) {
+        currentPageRecommended++;
+        updateRecommendedSlider();
     }
 });
 
+// Previous Button Click
+prevRecommendedBtn.addEventListener("click", () => {
+    if (currentPageRecommended > 1) {
+        currentPageRecommended--;
+        updateRecommendedSlider();
+    }
+});
 
+// Update Recommended Slider Position
+function updateRecommendedSlider() {
+    const startIndex = (currentPageRecommended - 1) * booksPerPageRecommended;
+    const endIndex = startIndex + booksPerPageRecommended;
+
+    // Hide all recommended books
+    recommendedBooks.forEach((book, index) => {
+        if (index >= startIndex && index < endIndex) {
+            book.style.display = "block"; // Display recommended books in the current page
+        } else {
+            book.style.display = "none"; // Hide other recommended books
+        }
+    });
+}
+
+// Generate a random price between $10 and $50
+function generateRandomPrice() {
+    const minPrice = 10;
+    const maxPrice = 50;
+    return (Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2);
+}
+
+// Initial Recommended Slider Update
+updateRecommendedSlider();

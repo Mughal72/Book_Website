@@ -6,9 +6,7 @@
     <title>About Us</title>
     <style>
 
-     @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
-     /* Reset some default styles */
-     /* Reset some default styles */
+ @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
@@ -16,16 +14,18 @@ body, h1, h2, h3, p, ul, li {
 
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Cambo', serif;
     background-color: #f5f5f5;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1030px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #2C5364;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    height: 820px;
 }
 
 /* Header Styles */
@@ -33,24 +33,24 @@ body {
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
-    color: #333; /* Dark text color */
+    color: #333;
 }
 
 /* Intro Section Styles */
 .intro {
-    background-color: #f8f8f8; /* Light gray background color */
+    background-color: #f8f8f8;
     padding: 20px;
     border-radius: 10px;
 }
 
 .us, .mission, .explore, .menu, .items, .highlight {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555; /* Slightly dark text color */
+    font-size: 20px;
+    line-height: 1.4;
+    color: #555;
 }
 
 .highlight {
-    color: #FF5722; /* Highlight color (orange) */
+    color: #FF5722;
     font-weight: bold;
 }
 
@@ -66,17 +66,20 @@ body {
 
 /* Team Section Styles */
 .team-section {
-    margin-top: 30px;
+    margin-top: 75px;
     padding: 20px;
-    background-color: #f8f8f8; /* Light gray background color */
+    background-color: #f8f8f8;
     border-radius: 10px;
+    height: 320px;
+    max-width: 1000px;
 }
 
 .OurTeam {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333; /* Dark text color */
+   font-size: 36px;
+    color: #333;
+    margin-bottom: 60px;
     text-align: center;
+    margin-top: -70px;
 }
 
 .team {
@@ -92,8 +95,10 @@ body {
 }
 
 .team-member img {
-    max-width: 100px;
-    border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
 }
 
 .leader, .member {
@@ -265,12 +270,12 @@ body {
             <h2 class="OurTeam">Our Team</h2>
             <div class="team">
                 <div class="team-member">
-                    <img src="team-member1.jpg" alt="Team Member 1">
+                    <img src="{{ url_for('static', filename='profiles/images.jpg') }}" alt="Team Member 1">
                     <h3 class="leader">Anber Sattar</h3>
                     <p>Co-Founder & Developer</p>
                 </div>
                 <div class="team-member">
-                    <img src="team-member2.jpg" alt="Team Member 2">
+                    <img src="{{ url_for('static', filename='profiles/user6.jpg') }}" alt="Team Member 2">
                     <h3 class="member">Unza Sheikh</h3>
                     <p>Lead Designer</p>
                 </div>

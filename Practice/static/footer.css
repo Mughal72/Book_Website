@@ -1,16 +1,16 @@
 /* Importing Google font - Open Sans */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+ font-family: 'Cambo', serif;
 }
 
 .footer {
   position: absolute;
-  top: 368%;
+  top: 505%;
   left: 50%;
   transform: translate(-50%, -50%);
 

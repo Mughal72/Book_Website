@@ -273,6 +273,7 @@ a {
     }
 
     .book-container {
+       background: linear-gradient(to right, #bbd2c5, #536976);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -374,7 +375,7 @@ background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
 
 .featured-book {
     width: 250px;
-    background-color: #fff;
+      background: linear-gradient(to right, #bbd2c5, #536976);
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -431,5 +432,3 @@ background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
 .slider-controls button:hover {
     background-color: #ff9933;
 }
-
-

@@ -16,7 +16,6 @@
       <li class="nav_item">
         <a href="{{ url_for('index') }}" class="nav_link">Home</a>
          <a href="{{ url_for('shop') }}" class="nav_link">Shop</a>
-        <a href="#" class="nav_link">Services</a>
           <a href="{{ url_for('about') }}" class="nav_link">About Us</a>
        <a href="{{ url_for('contact') }}" class="nav_link">Contact</a>
         <div class="dropdown">
@@ -58,20 +57,39 @@
     {% endfor %}
 </div>
 
+    <!-- Recommendation section -->
 <div class="recommended-books">
     <h2>Recommended Books</h2>
-    <div class="slideshow-container">
-        {% for index, book in recommendations.iterrows() %}
-        <div class="book-slide fade" style="display: {{ 'block' if index == 0 else 'none' }}">
-            <img src="{{ book['Image-URL'] }}" alt="Book Cover">
-            <h3>{{ book['Book-Title'] }}</h3>
-            <p>Author: {{ book['Author-Name'] }}</p>
-            <p>Ratings: {{ book['Ratings'] }}</p>
-        </div>
-        {% endfor %}
-    </div>
+    <div class="recommended-slider">
+        <!-- Slider Controls -->
 
+        <div class="slider-content">
+            <div class="recommended-books-container">
+                {% for index, book in recommendations.iterrows() %}
+                <div class="recommended-book">
+                    <img src="{{ book['Image-URL'] }}" alt="Book Cover">
+                    <h3 class="title">{{ book['Book-Title'] }}</h3>
+                    <p class="author">Author: {{ book['Author-Name'] }}</p>
+                    <div class="ratings">
+                        <!-- Add star icons for ratings -->
+                        {% set rating = book['Ratings'] %}
+                        {% for i in range(5) %}
+                            <span class="star {% if i < rating %}filled{% endif %}">&#9733;</span>
+                        {% endfor %}
+                    </div>
+                    <p class="price">Price: ${{ generateRandomPrice() }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+     <div class="slider-controls">
+            <button id="prev-recommended-btn">Previous</button>
+            <button id="next-recommended-btn">Next</button>
+        </div>
 </div>
+
+
  <section class="footer">
       <div class="footer-row">
         <div class="footer-col">

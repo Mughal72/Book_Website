@@ -54,6 +54,10 @@ def get_personalized_recommendations(user_name, num_recommendations=10):
         return pd.DataFrame()  # Return an empty DataFrame or any other appropriate response
 
 
+def generateRandomPrice():
+    return round(random.uniform(10.0, 100.0), 2)
+
+
 # Function to get featured books (you can customize this)
 def get_featured_books(min_rating=4.0, num_books=15):
     # Get books with ratings above the specified threshold
@@ -212,7 +216,7 @@ def get_popular_books():
         {'Ratings': 'mean', 'Author-Name': 'first', 'Image-URL': 'first'}).reset_index()
 
     # Sort the books based on average ratings in descending order
-    popular_books = book_ratings.sort_values('Ratings', ascending=False).head(20)
+    popular_books = book_ratings.sort_values('Ratings', ascending=False).head(24)
 
     return popular_books
 
@@ -233,11 +237,11 @@ def welcome():
         popular_books = get_popular_books()
 
         # Get the personalized book recommendations
-        recommendations = get_personalized_recommendations(username, num_recommendations=10)
+        recommendations = get_personalized_recommendations(username, num_recommendations=15)
 
         return render_template('welcome.html', username=username, email=user_data['email'],
                                password=user_data['password'], popular_books=popular_books,
-                               recommendations=recommendations)
+                               recommendations=recommendations, generateRandomPrice=generateRandomPrice)
     else:
         return redirect('/login')
 

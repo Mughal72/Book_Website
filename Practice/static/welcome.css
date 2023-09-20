@@ -11,6 +11,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+          background: linear-gradient(to right, #bbd2c5, #536976);
     }
     .book-wrapper {
         width: 220px;
@@ -84,10 +85,10 @@
         content: "\2605\2605\2605\2605\2605";
     }
 
-         @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
         body {
             background-repeat: no-repeat;
             background-size: cover;
+            font-family: 'Cambo', serif;
 
         }
 
@@ -201,40 +202,6 @@
   display: block;
 }
 
-
-.recommended-books {
-    margin: 20px;
-}
-
-.recommended-books h2{
-   text-align: center;
-        font-size: 40px;
-        margin-bottom: 30px;
-        weight: bold;
-}
-
-
-.slideshow-container {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-}
-
-.book-slide {
-    display: none;
-    text-align: center;
-}
-
-.book-slide img {
-    max-width: 100%;
-    height: auto;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 2s;
-}
-
 @keyframes fade {
     from {opacity: 0.4}
     to {opacity: 1}
@@ -266,21 +233,20 @@
 /* footer section style*/
 
 /* Importing Google font - Open Sans */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Cambo', serif;
 }
 
 .footer {
   position: absolute;
-  top: 375%;
+  top: 520%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   width: 100%;
   background: #10182F;
   border-radius: 6px;
@@ -376,30 +342,127 @@
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .footer {
+
+/* Recommended Books Section */
+.recommended-books {
+    margin: 20px;
+    text-align: center;
+}
+
+.recommended-books h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333; /* Text color for the section title */
+}
+
+.recommended-slider {
     position: relative;
-    bottom: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    border-radius: 0;
-  }
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0; /* Add padding for better spacing */
+}
 
-  .footer .footer-row {
-    padding: 20px;
-    gap: 1rem;
-  }
+.slider-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
 
-  .footer-col form {
-    display: block;
-  }
+.recommended-books-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent books from wrapping to the next line */
+    transition: transform 0.3s ease;
+}
 
-  .footer-col form :where(input, button) {
-    width: 100%;
-  }
+.recommended-book {
+       background: linear-gradient(to right, #bbd2c5, #536976);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin-right: 10px; /* Add space between recommended books */
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Hide content that overflows */
+    display: flex;
+    flex-direction: column;
+}
 
-  .footer-col form button {
-    margin: 10px 0 0 0;
-  }
+.recommended-book img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    flex-grow: 1; /* Allow the image to grow and take available space */
+}
+
+.recommended-book h3.title {
+    font-size: 18px;
+    color: #333; /* Text color for book title */
+    margin: 10px 0;
+    flex-shrink: 0; /* Prevent book title from shrinking */
+}
+
+.recommended-book p.author {
+    font-size: 19px;
+    color: #2C5364;
+    margin: 5px 0;
+    flex-shrink: 0;
+}
+
+.ratings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.star {
+    color: #f77f00; /* Color for unfilled star */
+    font-size: 24px;
+    margin-right: 3px; /* Spacing between stars */
+}
+
+.filled {
+    color: #ffcc00; /* Color for filled star */
+}
+
+.recommended-book p.price {
+    font-size: 16px;
+    color: #666; /* Text color for price */
+    margin: 5px 0;
+    flex-shrink: 0; /* Prevent price from shrinking */
+}
+
+/* Animation for Slideshow */
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+@keyframes fade {
+    from { opacity: 0.4 }
+    to { opacity: 1 }
+}
+
+.slider-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.slider-controls button {
+    background-color: #f77f00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.slider-controls button:hover {
+    background-color: #ff9933;
 }
