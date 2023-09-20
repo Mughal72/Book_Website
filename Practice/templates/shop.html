@@ -8,86 +8,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Nunito&family=Palanquin+Dark:wght@500&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="{{ url_for('static', filename='shop.css') }}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Book Mania</title>
 </head>
 
 <body>
            {% include 'header.html' %}
-
-    <nav id="shop-nav">
-        <div class="shop-navTop">
-            <div class="shop-navItem">
-
+ <!-- Featured Books Section -->
+<section class="featured-books">
+    <h2>Featured Books of the Month</h2>
+    <div class="featured-slider">
+        <div class="slider-content">
+            {% for index, book in featured_books.iterrows() %}
+            <div class="featured-book">
+                <img src="{{ book['Image-URL'] }}" alt="Featured Book">
+                <h3>{{ book['Book-Title'] }}</h3>
+                <p>Author: {{ book['Author-Name'] }}</p>
+                <p class="rating">Ratings: {{ book['Ratings'] }}</p>
             </div>
-
-            <div class="shop-navItem">
-    <div class="search">
-        <input type="text" placeholder="Search..." class="searchInput">
-        <img src="{{ url_for('static', filename='images/search.png') }}"  alt="" class="searchIcon">
-    </div>
-</div>
-
-            <div class="shop-navItem">
-                <span class="limitedOffer">Limited Offer!</span>
-            </div>
+            {% endfor %}
         </div>
-        <div class="navBottom">
-            <h3 class="menuItem">AI</h3>
-            <h3 class="menuItem">ML</h3>
-            <h3 class="menuItem">DS</h3>
-            <h3 class="menuItem">Cyber Security</h3>
-            <h3 class="menuItem">Cloud Computing</h3>
-        </div>
-    </nav>
-    <div class="slider">
-        <div class="sliderWrapper">
-            <div class="sliderItem">
-                <img src="./img/air.png" alt="" class="sliderImg" id="firsts">
-                <div class="sliderBg"></div>
-                <h1 class="sliderTitle">AIR FORCE</br> NEW</br> SEASON</h1>
-                <h2 class="sliderPrice">Rs.1999</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
-            </div>
-            <div class="sliderItem">
-                <img src="./img/jordan.png" alt="" class="sliderImg" id="jordan">
-                <div class="sliderBg"></div>
-                <h1 class="sliderTitle">AIR JORDAN</br> NEW</br> SEASON</h1>
-                <h2 class="sliderPrice">Rs 1149</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
-            </div>
-            <div class="sliderItem">
-                <img src="./img/blazer.png" alt="" class="sliderImg" id="thirds">
-                <div class="sliderBg"></div>
-                <h1 class="sliderTitle">BLAZER</br> NEW</br> SEASON</h1>
-                <h2 class="sliderPrice">Rs 2100</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
-            </div>
-            <div class="sliderItem">
-                <img src="./img/crater.png" alt="" class="sliderImg" id="crater">
-                <div class="sliderBg"></div>
-                <h1 class="sliderTitle">CRATER</br> NEW</br> SEASON</h1>
-                <h2 class="sliderPrice">Rs 2999</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
-            </div>
-            <div class="sliderItem">
-                <img src="./img/hippie.png" alt="" class="sliderImg">
-                <div class="sliderBg"></div>
-                <h1 class="sliderTitle">HIPPIE</br> NEW</br> SEASON</h1>
-                <h2 class="sliderPrice">Rs 999</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
-            </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <button id="prev-btn">Previous</button>
+            <button id="next-btn">Next</button>
         </div>
     </div>
+</section>
 
     <div class="features">
         <div class="feature">
@@ -113,17 +62,18 @@
     </div>
 
     <div class="product" id="product">
-        <img src="./img/air.png" alt="" class="productImg">
+        <img src="{{ url_for('static', filename='images/ai.jpg') }}" alt="" class="productImg">
         <div class="productDetails">
-            <h1 class="productTitle">AI</h1>
-            <h2 class="productAuthor">Author: Author Name</h2>
-            <p class="productDesc">Lorem ipsum dolor sit amet consectetur impal adipisicing elit. Alias assumenda
-                dolorum
-                doloremque sapiente aliquid aperiam.</p>
+            <h1 class="productTitle">Artificial Intelligence: A Modern Approach</h1>
+            <h2 class="productAuthor">Author:  Stuart J. Russell and Peter Norvig</h2>
+            <p class="productDesc"> <strong style="color: teal; font-size: 20px; ">Book Description:</strong><br>
+                Artificial Intelligence: A Modern Approach (AIMA) is a university textbook on artificial intelligence, written by Stuart J. Russell and Peter Norvig.
+         <br>It is considered the standard text in the field of artificial intelligence.<br>
+                The book is intended for an undergraduate audience but can also be used for graduate-level studies </p>
                 <span class="productPrice">$19.99</span>
                 <div class="additional-info">
-                    <p>ISBN: 1234567890</p>
-                    <p>Genre: Fiction</p>
+                    <p class="productIsbn">ISBN: 1234567890</p>
+                    <p class="productGenre">Genre: AI</p>
                 </div>
                 <div class="rating">
                     <span class="star">&#9733;</span>

@@ -139,3 +139,46 @@ close.addEventListener("click", () => {
 
 
 
+// JavaScript for Featured Books Slider
+const sliderContent = document.querySelector(".slider-content");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const featuredBooks = document.querySelectorAll(".featured-book");
+const booksPerPage = 5; // Number of books to display per page
+let currentPage = 1;
+
+// Next Button Click
+nextBtn.addEventListener("click", () => {
+    if (currentPage < Math.ceil(featuredBooks.length / booksPerPage)) {
+        currentPage++;
+        updateSlider();
+    }
+});
+
+// Previous Button Click
+prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        updateSlider();
+    }
+});
+
+// Update Slider Position
+function updateSlider() {
+    const startIndex = (currentPage - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+
+    // Hide all books
+    featuredBooks.forEach((book, index) => {
+        if (index >= startIndex && index < endIndex) {
+            book.style.display = "block"; // Display books in the current page
+        } else {
+            book.style.display = "none"; // Hide other books
+        }
+    });
+}
+
+// Initial Slider Update
+updateSlider();
+
+

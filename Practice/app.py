@@ -315,7 +315,10 @@ def profile():
 
 @app.route('/shop')
 def shop():
-    return render_template('shop.html')
+    featured_books = get_featured_books()
+
+    # Render the shop.html template with initial book data
+    return render_template('shop.html', featured_books=featured_books)
 
 
 @app.route('/about')

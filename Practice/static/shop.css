@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
+
 html {
   scroll-behavior: smooth;
   font-family: 'League Spartan', sans-serif;
@@ -11,205 +13,6 @@ body {
   font-family: "Lato", sans-serif;
   padding: 0;
   margin: 0;
-}
-
-#shop-nav {
-  background-color: #2d6b71ad;
-  color: #1c0e0e;
-  padding: 20px 50px;
-}
-
-.shop-navTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.search {
-    display: flex;
-    align-items: center;
-    background-color: #2f8d76;
-    padding: 8px 12px;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-.searchInput {
-    border: none;
-    background: transparent;
-    flex-grow: 1; /* Allow the input field to grow and fill available space */
-    font-size: 16px;
-    padding: 6px 10px;
-    outline: none;
-}
-
-.searchInput::placeholder {
-  color: lightgray;
-}
-
-/* Style for the search icon */
-.searchIcon {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-/* Style for the search icon on hover */
-.searchIcon:hover {
-    opacity: 1;
-}
-
-.limitedOffer {
-  font-size: 20px;
-  border-bottom: 2px solid rgb(194, 40, 156);
-  cursor: pointer;
-}
-
-.navBottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.menuItem {
-  margin-right: 50px;
-  cursor: pointer;
-  color: yellow;
-  font-weight: bold;
-}
-.menuItem:hover{
-   color: #CD5C5C;
-}
-
-
-.slider {
-  background: url(https://images.pexels.com/photos/7078622/pexels-photo-7078622.jpeg?auto=compress&cs=tinysrgb&w=600);
-  /* background: url("https://images.unsplash.com/photo-1604147495798-57beb5d6af73?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"); */
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-  overflow: hidden;
-}
-
-.sliderWrapper {
-  display: flex;
-  width: 500vw;
-  transition: all 1.5s ease-in-out;
-}
-
-
-.sliderItem {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.sliderBg {
-  width: 750px;
-  height: 750px;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.sliderImg {
-  z-index: 1;
-}
-.genre {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 5px;
-}
-#firsts{
-  width: 60rem;
-}
-#jordan{
-  width:50rem;
-  transform: rotate(20deg);
-}
-#thirds{
-  width: 50rem;
-  transform: rotate(20deg);
-  /* filter: invert(100%); */
-}
-#crater{
-  width: 50rem;
-}
-
-.sliderTitle {
-  position: absolute;
-  top: 10%;
-  right: 10%;
-  font-size: 60px;
-  font-weight: 900;
-  text-align: center;
-  color: rgb(44, 182, 32);
-  z-index: 1;
-}
-
-.sliderPrice {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  font-size: 60px;
-  font-weight: 300;
-  text-align: center;
-  color: white;
-  border: 1px solid gray;
-  z-index: 1;
-}
-
-.buyButton {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  font-size: 30px;
-  font-weight: 900;
-  color: white;
-  border: 1px solid gray;
-  background-color: black;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.buyButton:hover {
-  background-color: white;
-  color: black;
-}
-
-.sliderItem:nth-child(1) .sliderBg {
-  background-color: #e283ce;
-}
-.sliderItem:nth-child(2) .sliderBg {
-  background-color: rebeccapurple;
-}
-.sliderItem:nth-child(3) .sliderBg {
-  background-color: teal;
-}
-.sliderItem:nth-child(4) .sliderBg {
-  background-color: cornflowerblue;
-}
-.sliderItem:nth-child(5) .sliderBg {
-  background-color: rgb(124, 115, 80);
-}
-
-.sliderItem:nth-child(1) .sliderPrice {
-  color: #369e62;
-}
-.sliderItem:nth-child(2) .sliderPrice {
-  color: white;
-}
-.sliderItem:nth-child(3) .sliderPrice {
-  color: teal;
-}
-.sliderItem:nth-child(4) .sliderPrice {
-  color: cornflowerblue;
-}
-.sliderItem:nth-child(5) .sliderPrice {
-  color: cornsilk;
 }
 
 .features {
@@ -335,8 +138,10 @@ label {
 }
 
 .productImg {
-  width: 50%;
-  margin-top: 6rem;
+  width: 20%;
+  margin-top: 10rem;
+  margin-left: 10rem;
+
 }
 
 .productDetails {
@@ -348,13 +153,37 @@ label {
 }
 
 .productTitle {
-  font-size: 75px;
-  font-weight: 900;
+  font-size: 30px;
+  font-weight: 800;
+  font-family: 'Cambo', serif;
+}
+
+
+.productAuthor{
+  font-size: 17px;
+  font-family: 'Cambo', serif;
+}
+
+.productIsbn{
+font-size: 15px;
+font-family: 'Cambo', serif;
+}
+
+.productGenre{
+font-size: 15px;
+font-family: 'Cambo', serif;
+}
+
+.productPrice{
+  font-size: 15px;
+  font-family: 'Cambo', serif;
 }
 
 .productDesc {
-  font-style: 24px;
+  font-style: 20px;
   color: rgb(241, 234, 234);
+  line-height: 1.5rem;
+  font-family: 'Cambo', serif;
 }
 
 .colors,
@@ -623,6 +452,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
   }
 
   .productImg{
@@ -678,4 +508,87 @@ footer {
     width: 90%;
     padding: 20px;
   }
+}
+
+
+/* Featured Books Section */
+.featured-books {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.featured-books h2 {
+background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Featured Book Container */
+.slider-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.featured-book {
+    width: 250px;
+      background: linear-gradient(to right, #bbd2c5, #536976);
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.featured-book:hover {
+    transform: translateY(-5px);
+}
+
+.featured-book img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.featured-book h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.featured-book p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.featured-book .rating {
+    font-weight: bold;
+    color: #f77f00;
+}
+
+/* Slider Controls */
+.slider-controls {
+    margin-top: 20px;
+}
+
+.slider-controls button {
+    background-color: #f77f00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.slider-controls button:hover {
+    background-color: #ff9933;
 }
