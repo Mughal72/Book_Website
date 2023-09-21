@@ -452,7 +452,8 @@
 }
 
 .slider-controls button {
-    background-color: #f77f00;
+    font-family: 'Cambo', serif;
+    background-color: #314755;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -464,5 +465,5 @@
 }
 
 .slider-controls button:hover {
-    background-color: #ff9933;
+    background-color: #3b8d99;
 }

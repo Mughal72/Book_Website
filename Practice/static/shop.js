@@ -125,6 +125,9 @@ currentProductSizes.forEach((size, index) => {
   });
 });
 
+
+//buy now (payment method) script
+
 const productButton = document.querySelector(".productButton");
 const payment = document.querySelector(".payment");
 const close = document.querySelector(".close");
@@ -137,6 +140,36 @@ close.addEventListener("click", () => {
   payment.style.display = "none";
 });
 
+
+//for new release (payment method)button
+// JavaScript
+const productBtn = document.querySelectorAll(".productBtn");
+const payForm = document.querySelectorAll(".pay");
+const closeBtn = document.querySelectorAll(".Close");
+
+productBtn.forEach((productBtn) => {
+  productBtn.addEventListener("click", () => {
+    // Get the data-book attribute to identify the corresponding payment form
+    const bookId = productBtn.getAttribute("data-book");
+
+    // Hide all payment forms
+    payForm.forEach((payForm) => {
+      payForm.style.display = "none";
+    });
+
+    // Show the payment form corresponding to the clicked book
+    const selectedPayForm = document.querySelector(`.pay[data-book="${bookId}"]`);
+    selectedPayForm.style.display = "flex";
+  });
+});
+
+closeBtn.forEach((closeBtn) => {
+  closeBtn.addEventListener("click", () => {
+    // Hide the parent payment form when the close button is clicked
+    const payForm = closeBtn.parentElement;
+    payForm.style.display = "none";
+  });
+});
 
 
 // JavaScript for Featured Books Slider
@@ -181,4 +214,94 @@ function updateSlider() {
 // Initial Slider Update
 updateSlider();
 
+//Read more button script
+document.addEventListener("DOMContentLoaded", function() {
+    const descriptions = document.querySelectorAll(".description");
+    const readMoreBtns = document.querySelectorAll(".read-more-btn");
 
+    readMoreBtns.forEach(function(btn, index) {
+        let expanded = false;
+
+        btn.addEventListener("click", function() {
+            if (!expanded) {
+                // Expand the description
+                descriptions[index].style.maxHeight = "none";
+                btn.textContent = "Read Less";
+            } else {
+                // Collapse the description
+                descriptions[index].style.maxHeight = "80px"; // Adjust to the initial max height
+                btn.textContent = "Read More";
+            }
+
+            expanded = !expanded;
+        });
+    });
+});
+
+
+//review from script
+document.addEventListener("DOMContentLoaded", function() {
+    const reviewForm = document.getElementById("add-review-form");
+    const reviewList = document.querySelector(".review-list");
+
+    reviewForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const rating = document.getElementById("rating").value;
+        const comment = document.getElementById("comment").value;
+
+        // Create a new review element
+        const review = document.createElement("div");
+        review.classList.add("review");
+
+        // Build the review content
+        review.innerHTML = `
+            <div class="user-info">
+                <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="${name}" class="fIcon">
+                <p>${name}</p>
+            </div>
+            <div class="rating">
+                ${generateRatingStars(rating)}
+            </div>
+            <p class="review-text">${comment}</p>
+        `;
+
+        // Append the review to the review list
+        reviewList.appendChild(review);
+
+        // Reset the form
+        reviewForm.reset();
+    });
+
+    // Function to generate star icons based on the rating
+    function generateRatingStars(rating) {
+        const filledStars = '<span class="star">&#9733;</span>'.repeat(rating);
+        const emptyStars = '<span class="star">&#9734;</span>'.repeat(5 - rating);
+        return filledStars + emptyStars;
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+
+    emailInput.addEventListener("input", function() {
+        // Regular expression for email validation
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        if (emailPattern.test(emailInput.value)) {
+            // Email is valid
+            emailInput.classList.remove("invalid");
+            emailInput.classList.add("valid");
+            emailError.textContent = ""; // Clear any previous error message
+        } else {
+            // Email is invalid
+            emailInput.classList.remove("valid");
+            emailInput.classList.add("invalid");
+            emailError.textContent = "Please enter a valid email address.";
+        }
+    });
+});

@@ -83,7 +83,10 @@
                     <span class="star">&#9733;</span>
                     <p class="rating-text">5.0 (15 reviews)</p>
                 </div>
-            <button class="productButton">BUY NOW!</button>
+            <button class="productButton">BUY NOW !</button>
+<a href="https://people.engr.tamu.edu/guni/csce421/files/AI_Russell_Norvig.pdf" class="read-now-button">
+    <button class="productButton">READ NOW</button>
+</a>
         </div>
         <div class="payment">
             <h1 class="payTitle">Personal Information</h1>
@@ -114,54 +117,154 @@
 
     <!-- Product Listing -->
 <section class="gallery">
-    <h2>Featured Books</h2>
+    <h2 class="release">New Releases</h2>
     <div class="gallery">
+
         <div class="galleryItem">
-            <img src="book1.jpg" alt="Book 1" class="galleryImg">
-            <h3 class="galleryTitle">Book 1</h3>
-            <p class="galleryDesc">Description of Book 1. Explore the journey of self-discovery with our inspirational book. Be yourself and embrace your uniqueness.</p>
-            <span class="productPrice">$19.99</span>
-            <button class="productButton">BUY NOW!</button>
+            <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="Book 1" class="galleryImg">
+            <h3 class="galleryTitle">The AI Revolution in Medicine: <span style="font-size: 10px;">GPT-4 and Beyond</span></h3>
+            <h5 class="galleryAuthor"> <span style=" font-family: 'Cambo', serif; font-size: 14px; color:#aa4b6b;">Author:<br>Peter Lee, Carey Goldberg, Isaac Kohane</span></h5>
+             <p class="galleryDesc description"> <span style="font-size: 15px; color: #CAC531; font-family: 'Cambo',serif;">Short Description:</span><br><br>
+                "AI Revolution in Medicine: GPT-4 and Beyond" explores the latest advancements in AI technology,
+                including ChatGPT and GPT-4, and their potential in the medical sector."
+            </p>
+            <button class="read-more-btn">Read More</button>
+            <span style="font-size: 20px;" class="productPrice">$19.99</span>
+            <button class="productBtn">BUY NOW!</button>
+<a href="https://www.pearson.com/en-au/media/2yfj24is/9780138200046.pdf" class="read-now-button">
+    <button class="readButton">READ NOW</button>
+</a>
         </div>
 
         <div class="galleryItem">
-            <img src="book2.jpg" alt="Book 2" class="galleryImg">
-            <h3 class="galleryTitle">Book 2</h3>
-            <p class="galleryDesc">Description of Book 2. Delve into a thrilling adventure with our latest novel. Join the protagonist on an epic quest.</p>
-            <span class="productPrice">$24.99</span>
-            <button class="productButton">BUY NOW!</button>
+            <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Book 2" class="galleryImg">
+            <h3 class="galleryTitle">I, Human: AI, Automation, and the Quest to<span style="font-size: 10px;"><br> Reclaim What Makes Us Unique </span></h3>
+             <h5 class="galleryAuthor"> <span style=" font-family: 'Cambo', serif; font-size: 14px; color:#aa4b6b;">Author:<br> Tomas Chamorro-Premuzic</span></h5>
+           <p class="galleryDesc description"> <span style="font-size: 15px; color: #CAC531; font-family: 'Cambo',serif;">Short Description:</span><br><br>
+                "Tomas Chamorro-Premuzic explores the potential of AI in improving our lives but also warns that it is causing distraction, selfishness, bias, narcissism, entitlement, and impatience."
+            </p>
+            <button class="read-more-btn">Read More</button>
+
+            <span style="font-size: 20px;" class="productPrice">$28.00</span>
+            <button class="productBtn">BUY NOW!</button>
+            <a href="#" class="read-now-button">
+    <button class="readButton">READ NOW</button>
+</a>
         </div>
-        <div class="galleryItem">
-            <img src="book2.jpg" alt="Book 2" class="galleryImg">
-            <h3 class="galleryTitle">Book 2</h3>
-            <p class="galleryDesc">Description of Book 2. Delve into a thrilling adventure with our latest novel. Join the protagonist on an epic quest.</p>
-            <span class="productPrice">$24.99</span>
-            <button class="productButton">BUY NOW!</button>
+
+         <div class="galleryItem">
+            <img src="{{ url_for('static', filename='images/3.jpg') }}"  alt="Book 2" class="galleryImg">
+            <h3 class="galleryTitle">"Life 3.0:<span style="font-size: 10px;"><br> Being Human in the Age of Artificial Intelligence”</span></h3>
+             <h5 class="galleryAuthor"> <span style=" font-family: 'Cambo', serif; font-size: 14px; color:#aa4b6b;">Author:<br>Max Tegmark</span></h5>
+           <p class="galleryDesc description">
+    <span style="font-size: 15px; color: #CAC531; font-family: 'Cambo',serif;">Short Description:</span><br><br>
+    "Life 3.0" by Max Tegmar explores AI's impact on society, highlighting its potential for crime, war, justice, jobs, and humanity,
+    while also discussing ensuring AI's benefits and preventing autonomous weapon arms races.
+</p>
+<button class="read-more-btn">Read More</button>
+            <span style="font-size: 20px;" class="productPrice">$39.10</span>
+            <button class="productBtn">BUY NOW!</button>
+            <a href="#" class="read-now-button">
+    <button class="readButton">READ NOW</button>
+</a>
         </div>
-        <div class="galleryItem">
-            <img src="book2.jpg" alt="Book 2" class="galleryImg">
-            <h3 class="galleryTitle">Book 2</h3>
-            <p class="galleryDesc">Description of Book 2. Delve into a thrilling adventure with our latest novel. Join the protagonist on an epic quest.</p>
-            <span class="productPrice">$24.99</span>
-            <button class="productButton">BUY NOW!</button>
+
+         <div class="galleryItem">
+            <img src="{{ url_for('static', filename='images/4.jpg') }}" alt="Book 2" class="galleryImg">
+            <h3 class="galleryTitle">Distributional Reinforcement Learning</h3>
+             <h5 class="galleryAuthor"> <span style=" font-family: 'Cambo', serif; font-size: 14px; color:#aa4b6b;">Author:<br> Marc G. Bellemare, Will Dabney, Mark Rowland</span></h5>
+            <p class="galleryDesc description"> <span style="font-size: 15px; color: #CAC531; font-family: 'Cambo',serif;">Short Description:</span><br><br>
+            "Distributional reinforcement learning is a mathematical formalism that focuses on the total reward or return an agent receives from their choices,
+                from a probabilistic perspective. This guide by Bellemare, Dabney, and Rowland presents key concepts and applications."
+            </p>
+             <button class="read-more-btn">Read More</button>
+            <span style="font-size: 20px;" class="productPrice">$25.00</span>
+            <button class="productBtn" >BUY NOW!</button>
+            <a href="https://www.distributional-rl.org/" class="read-now-button">
+    <button class="readButton">READ NOW</button>
+</a>
         </div>
-        <div class="galleryItem">
-            <img src="book2.jpg" alt="Book 2" class="galleryImg">
-            <h3 class="galleryTitle">Book 2</h3>
-            <p class="galleryDesc">Description of Book 2. Delve into a thrilling adventure with our latest novel. Join the protagonist on an epic quest.</p>
-            <span class="productPrice">$24.99</span>
-            <button class="productButton">BUY NOW!</button>
+
+         <div class="galleryItem">
+            <img src="{{ url_for('static', filename='images/5.jpg') }}" alt="Book 2" class="galleryImg">
+            <h3 class="galleryTitle">More than a Glitch:<span style="font-size: 10px;"><br> Confronting Race, Gender, and Ability Bias in Tech </span></h3>
+             <h5 class="galleryAuthor"> <span style=" font-family: 'Cambo', serif; font-size: 14px; color:#aa4b6b;">Author:<br> Meredith Broussard</span></h5>
+            <p class="galleryDesc description"> <span style="font-size: 15px; color: #CAC531; font-family: 'Cambo',serif;">Short Description:</span><br><br>
+                "When technology reinforces inequality, it’s not just a glitch—it’s a signal that we need to redesign our systems to create a more equitable world."
+            </p>
+             <button class="read-more-btn">Read More</button>
+            <span style="font-size: 20px;" class="productPrice">$31.20</span>
+            <button class="productBtn" >BUY NOW!</button>
+            <a href="#" class="read-now-button">
+    <button class="readButton">READ NOW</button>
+</a>
+        </div>
+
+          <div class="pay" >
+            <h1 class="payInfo">Personal Information</h1>
+            <label>Name and Surname</label>
+            <input type="text" placeholder="John Doe" class="payIp">
+            <label>Phone Number</label>
+            <input type="text" placeholder="+1 234 5678" class="payIp">
+            <label>Address</label>
+            <input type="text" placeholder="Elton St 21 22-145" class="payIp">
+            <h1 class="payInfo">Card Information</h1>
+            <div class="CardIcons">
+               <img src="{{ url_for('static', filename='images/visa.png') }}" width="40" alt="" class="CardIcon">
+               <img src="{{ url_for('static', filename='images/debit.png') }}" width="40" alt="" class="CardIcon">
+                <img src="{{ url_for('static', filename='images/master.png') }}" alt="" width="40" class="CardIcon">
+                <img src="{{ url_for('static', filename='images/paypal.png') }}" alt="" width="40" class="CardIcon">
+                <img src="{{ url_for('static', filename='images/payonner.png') }}" alt="" width="40" class="CardIcon">
+            </div>
+            <input type="password" class="payIp" placeholder="Card Number">
+            <div class="CardInfo">
+                <input type="text" placeholder="mm" class="payIp Sm">
+                <input type="text" placeholder="yyyy" class="payIp Sm">
+                <input type="text" placeholder="cvv" class="payIp Sm">
+            </div>
+            <button class="payButton1">Checkout!</button>
+            <span class="Close">X</span>
         </div>
 
     </div>
-
-
 </section>
 
 
 <!-- Customer Reviews -->
 <section class="customer-reviews">
     <h2>Customer Reviews</h2>
+     <!-- Review Form -->
+    <div class="review-form">
+        <h3>Add Your Review</h3>
+        <form id="add-review-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <p id="email-error" class="error-message"></p>
+
+            <label for="rating">Rating:</label>
+            <select id="rating" required>
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Star</option>
+            </select>
+
+            <label for="comment">Your Review:</label>
+            <textarea id="comment" rows="4" required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+
+    <!-- Display Reviews -->
+    <div class="review-list">
+        <h2>Other Customer Reviews</h2>
+        <!-- Reviews will be dynamically added here using JavaScript -->
+    </div>
+
     <div class="review">
         <div class="user-info">
            <img src="{{ url_for('static', filename='profiles/user4.jpg') }}" alt="User 1" class="fIcon">
