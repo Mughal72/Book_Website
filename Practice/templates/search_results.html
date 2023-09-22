@@ -127,6 +127,16 @@
             color: #FFA500;
             margin-top: 5px;
         }
+        #keywords {
+    /* Your CSS styles here */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    /* Add any other styles you want to apply */
+}
+
     </style>
     <title>Search Results</title>
 </head>
@@ -136,14 +146,17 @@
             <a href="#" class="nav_logo">Book Mania</a>
             <ul class="nav_items">
                 <li class="nav_item">
-                    <a href="#" class="nav_link">Home</a>
-                    <a href="#" class="nav_link">Product</a>
-                    <a href="#" class="nav_link">Services</a>
-                    <a href="#" class="nav_link">Contact</a>
+                     <a href="{{ url_for('index') }}" class="nav_link">Home</a>
+                <a href="{{ url_for('shop') }}" class="nav_link">Shop</a>
+                <a href="{{ url_for('about') }}" class="nav_link">About Us</a>
+               <a href="{{ url_for('contact') }}" class="nav_link">Contact</a>
                 </li>
             </ul>
             <form action="/search" method="POST" class="search-form">
-                <input type="text" name="search_query" id="search_query" placeholder="Search for books by title or author">
+                <input type="text" name="search_query" id="search_query" placeholder="Search for books by title, author, or keywords">
+                <datalist id="keywords">
+        <!-- Suggestions will be added dynamically using JavaScript -->
+    </datalist>
                 <button type="submit">Search</button>
             </form>
         </nav>
@@ -171,4 +184,5 @@
         {% endfor %}
     </ul>
 </body>
+<script src="{{ url_for('static', filename='search_results.js') }}"></script>
 </html>

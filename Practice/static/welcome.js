@@ -80,3 +80,6 @@ function generateRandomPrice() {
 
 // Initial Recommended Slider Update
 updateRecommendedSlider();
+
+
+

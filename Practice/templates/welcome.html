@@ -29,7 +29,10 @@
       </li>
     </ul>
       <form action="/search" method="POST" class="search-form">
-                <input type="text" name="search_query" id="search_query" placeholder="Search for books by title or author">
+                <input type="text" name="search_query" id="search_query" placeholder="Search for books by title, author, or keywords">
+               <datalist id="keywords">
+        <!-- Suggestions will be added dynamically using JavaScript -->
+    </datalist>
                 <button type="submit">Search</button>
             </form>
 
@@ -148,6 +151,6 @@
       </div>
     </section>
     <script src="{{ url_for('static', filename='welcome.js') }}"></script>
-
+<script src="{{ url_for('static', filename='search_results.js') }}"></script>
 </body>
 </html>
