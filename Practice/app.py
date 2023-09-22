@@ -80,16 +80,30 @@ def index():
 def search():
     if request.method == 'POST':
         # Get the search query from the form
-        search_query = request.form['search_query']
+        search_query = request.form['search_query'].lower()
 
-        # Perform a search in your book dataset (books_df)
-        # You can filter books based on title or author name using Pandas
-        # Here's a simple example:
-        search_query = search_query.lower()
-        search_results = books_df[
+        # Split the search query into keywords
+        keywords = search_query.split()
+
+        # Initialize an empty DataFrame for search results
+        search_results = pd.DataFrame()
+
+        # Search by book title or author
+        title_author_results = books_df[
             books_df['Book-Title'].str.lower().str.contains(search_query) |
             books_df['Author-Name'].str.lower().str.contains(search_query)
-            ]
+        ]
+
+        # Search by keywords in the 'Genres' column
+        for keyword in keywords:
+            keyword_results = books_df[books_df['Genres'].str.lower().str.contains(keyword)]
+            search_results = pd.concat([search_results, keyword_results])
+
+        # Combine the results from title, author, and keyword searches
+        search_results = pd.concat([search_results, title_author_results])
+
+        # Deduplicate the results
+        search_results = search_results.drop_duplicates(subset='Book-Title')
 
         if not search_results.empty:
             print("Search Results Found:", search_results)
